@@ -1,7 +1,7 @@
 import Hero from "@/components/sections/hero";
 import Services from "@/components/sections/services";
 import Consulting from "@/components/sections/consulting";
-import Contact from "@/components/sections/contact";
+import TechStack from "@/components/sections/tech-stack";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <Hero />
       <Services />
       <Consulting />
-      <Contact />
+      <TechStack />
     </main>
   );
 }

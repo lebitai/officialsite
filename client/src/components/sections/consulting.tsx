@@ -9,39 +9,21 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { insertOrderSchema } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { Clock, Check } from "lucide-react";
 
 export default function Consulting() {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const form = useForm({
-    resolver: zodResolver(insertOrderSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      company: "",
-    },
-  });
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const mutation = useMutation({
-    mutationFn: async (data: unknown) => {
-      const response = await apiRequest("POST", "/api/create-checkout-session", data);
+    mutationFn: async () => {
+      const response = await apiRequest("POST", "/api/create-checkout-session", {
+        email: "",  // Stripe will collect this
+        name: "",   // Stripe will collect this
+        company: "" // Stripe will collect this
+      });
       const json = await response.json();
       return json;
     },
@@ -54,16 +36,16 @@ export default function Consulting() {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Failed to create checkout session. Please try again.",
+        description: "Failed to start checkout process. Please try again.",
       });
-      setIsSubmitting(false);
+      setIsProcessing(false);
     },
   });
 
-  async function onSubmit(data: unknown) {
-    setIsSubmitting(true);
-    mutation.mutate(data);
-  }
+  const handleBooking = () => {
+    setIsProcessing(true);
+    mutation.mutate();
+  };
 
   return (
     <section id="consulting" className="py-20">
@@ -114,56 +96,13 @@ export default function Consulting() {
               <span className="text-3xl font-bold">$29.90</span>
             </div>
 
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Your name" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input placeholder="your@email.com" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="company"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Company</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Your company" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button
-                  type="submit"
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Processing..." : "Book Consultation"}
-                </Button>
-              </form>
-            </Form>
+            <Button
+              onClick={handleBooking}
+              className="w-full mt-6"
+              disabled={isProcessing}
+            >
+              {isProcessing ? "Processing..." : "Book Consultation"}
+            </Button>
           </CardContent>
         </Card>
       </div>

@@ -17,7 +17,7 @@ export default function Navigation() {
             LebitAI
           </a>
         </Link>
-        
+
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -35,8 +35,8 @@ export default function Navigation() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="#contact">
-                <Button variant="default">Contact Us</Button>
+              <Link href="#consulting">
+                <Button variant="default">Book Now</Button>
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
