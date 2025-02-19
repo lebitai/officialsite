@@ -6,9 +6,11 @@ const blockchainTech = [
   {
     icon: SiEthereum,
     name: "Ethereum",
+    question: "Setup smart contract infrastructure?"
   },
   {
     name: "Filecoin",
+    question: "Build decentralized storage?",
     customIcon: (
       <svg viewBox="0 0 32 32" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -21,126 +23,70 @@ const blockchainTech = [
   {
     icon: SiSolana,
     name: "Solana",
-  },
-  {
-    name: "Sui",
-    customIcon: (
-      <svg viewBox="0 0 32 32" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
-        <path
-          fill="currentColor"
-          d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0zm-3.434 7.452l3.434 1.984 3.434-1.984v13.548l-3.434 1.984-3.434-1.984V7.452zm6.868 0l3.434 1.984v13.548l-3.434 1.984V7.452zM9.132 7.452v13.548l-3.434 1.984V9.436l3.434-1.984z"
-        />
-      </svg>
-    ),
-  },
-  {
-    name: "Chia",
-    customIcon: (
-      <svg viewBox="0 0 32 32" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
-        <path
-          fill="currentColor"
-          d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0zm-.5 6.5v5h-5v3h5v7h-5v3h5v5h3v-5h5v-3h-5v-7h5v-3h-5v-5h-3z"
-        />
-      </svg>
-    ),
-  },
-  {
-    name: "Spacemesh",
-    customIcon: (
-      <svg viewBox="0 0 32 32" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
-        <path
-          fill="currentColor"
-          d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0zm-4.5 8.5l-3 5.196h6l-3-5.196zm9 0l-3 5.196h6l-3-5.196zm-4.5 7.804l-3 5.196h6l-3-5.196z"
-        />
-      </svg>
-    ),
-  },
+    question: "Scale blockchain operations?"
+  }
 ];
 
 const aiTech = [
   {
     name: "DeepSeek",
-    description: "Advanced language model architecture",
+    question: "Deploy custom LLMs?",
     icon: "🧠",
   },
   {
     name: "LLama3",
-    description: "State-of-the-art open-source LLM",
+    question: "Implement open-source AI?",
     icon: "🦙",
   },
   {
     name: "QWen3",
-    description: "Enterprise-grade generative AI",
+    question: "Enterprise AI integration?",
     icon: "⚡",
-  },
+  }
 ];
 
 export default function TechStack() {
   return (
-    <section id="tech-stack" className="py-20 bg-muted/20">
-      <div className="container">
+    <section className="py-24 bg-[#fafafa]">
+      <div className="container max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold mb-4">Technical Expertise</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Leveraging cutting-edge blockchain and AI technologies
-          </p>
+          <h2 className="text-3xl font-bold mb-4">Technical Problems We Solve</h2>
         </motion.div>
 
-        <div className="space-y-12">
-          <div>
-            <h3 className="text-xl font-semibold mb-6 text-center">Blockchain Infrastructure</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {blockchainTech.map((tech, index) => (
-                <motion.div
-                  key={tech.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Card className="h-full">
-                    <CardContent className="flex flex-col items-center justify-center p-6">
-                      {tech.icon ? (
-                        <tech.icon className="h-8 w-8 mb-3 text-primary" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[...blockchainTech, ...aiTech].map((tech, index) => (
+            <motion.div
+              key={tech.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-6">
+                  <div className="mb-4">
+                    {tech.icon ? (
+                      typeof tech.icon === 'string' ? (
+                        <span className="text-4xl">{tech.icon}</span>
                       ) : (
-                        <div className="mb-3 text-primary">{tech.customIcon}</div>
-                      )}
-                      <span className="font-medium">{tech.name}</span>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-semibold mb-6 text-center">GenAI Experience</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {aiTech.map((tech, index) => (
-                <motion.div
-                  key={tech.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Card className="h-full">
-                    <CardContent className="flex flex-col items-center justify-center p-6 text-center">
-                      <span className="text-4xl mb-4">{tech.icon}</span>
-                      <span className="font-medium mb-2">{tech.name}</span>
-                      <p className="text-sm text-muted-foreground">{tech.description}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+                        <tech.icon className="h-8 w-8 text-primary" />
+                      )
+                    ) : (
+                      tech.customIcon
+                    )}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{tech.question}</h3>
+                  <p className="text-sm text-muted-foreground">{tech.name}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
