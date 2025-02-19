@@ -10,10 +10,10 @@ const blockchainTech = [
   {
     name: "Filecoin",
     customIcon: (
-      <svg viewBox="0 0 32 32" className="h-8 w-8">
+      <svg viewBox="0 0 32 32" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
         <path
           fill="currentColor"
-          d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16c8.837 0 16-7.163 16-16S24.837 0 16 0zm5.5 21.5h-11v-3h11v3zm0-8h-11v-3h11v3z"
+          d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0zm-.171 7.226l-8.132 4.195v9.173l8.132 4.195 8.133-4.195v-9.173l-8.133-4.195zm0 1.548l6.326 3.652-2.284 1.286-4.042-2.335-4.042 2.335-2.284-1.286 6.326-3.652zm-6.262 5.89l1.86 1.048v3.888l4.402 2.542 4.401-2.542v-3.888l1.861-1.048v6.933l-6.262 3.277-6.262-3.277v-6.933z"
         />
       </svg>
     ),
@@ -25,10 +25,10 @@ const blockchainTech = [
   {
     name: "Sui",
     customIcon: (
-      <svg viewBox="0 0 32 32" className="h-8 w-8">
+      <svg viewBox="0 0 32 32" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
         <path
           fill="currentColor"
-          d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16c8.837 0 16-7.163 16-16S24.837 0 16 0zm5.5 21.5h-11v-3h11v3zm0-8h-11v-3h11v3z"
+          d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0zm-3.434 7.452l3.434 1.984 3.434-1.984v13.548l-3.434 1.984-3.434-1.984V7.452zm6.868 0l3.434 1.984v13.548l-3.434 1.984V7.452zM9.132 7.452v13.548l-3.434 1.984V9.436l3.434-1.984z"
         />
       </svg>
     ),
@@ -36,10 +36,10 @@ const blockchainTech = [
   {
     name: "Chia",
     customIcon: (
-      <svg viewBox="0 0 32 32" className="h-8 w-8">
+      <svg viewBox="0 0 32 32" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
         <path
           fill="currentColor"
-          d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16c8.837 0 16-7.163 16-16S24.837 0 16 0zm2 24h-4v-4h4v4zm0-8h-4V8h4v8z"
+          d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0zm-.5 6.5v5h-5v3h5v7h-5v3h5v5h3v-5h5v-3h-5v-7h5v-3h-5v-5h-3z"
         />
       </svg>
     ),
@@ -47,10 +47,10 @@ const blockchainTech = [
   {
     name: "Spacemesh",
     customIcon: (
-      <svg viewBox="0 0 32 32" className="h-8 w-8">
+      <svg viewBox="0 0 32 32" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
         <path
           fill="currentColor"
-          d="M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 24c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z"
+          d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0zm-4.5 8.5l-3 5.196h6l-3-5.196zm9 0l-3 5.196h6l-3-5.196zm-4.5 7.804l-3 5.196h6l-3-5.196z"
         />
       </svg>
     ),
@@ -61,14 +61,17 @@ const aiTech = [
   {
     name: "DeepSeek",
     description: "Advanced language model architecture",
+    icon: "🧠",
   },
   {
     name: "LLama3",
     description: "State-of-the-art open-source LLM",
+    icon: "🦙",
   },
   {
     name: "QWen3",
     description: "Enterprise-grade generative AI",
+    icon: "⚡",
   },
 ];
 
@@ -83,7 +86,7 @@ export default function TechStack() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Our Technical Expertise</h2>
+          <h2 className="text-3xl font-bold mb-4">Technical Expertise</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Leveraging cutting-edge blockchain and AI technologies
           </p>
@@ -129,6 +132,7 @@ export default function TechStack() {
                 >
                   <Card className="h-full">
                     <CardContent className="flex flex-col items-center justify-center p-6 text-center">
+                      <span className="text-4xl mb-4">{tech.icon}</span>
                       <span className="font-medium mb-2">{tech.name}</span>
                       <p className="text-sm text-muted-foreground">{tech.description}</p>
                     </CardContent>
