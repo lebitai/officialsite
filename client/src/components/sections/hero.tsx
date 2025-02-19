@@ -4,7 +4,7 @@ import { Link } from "wouter";
 
 export default function Hero() {
   return (
-    <section className="min-h-[90vh] flex items-center justify-center relative overflow-hidden bg-[#fafafa]">
+    <section className="min-h-[90vh] flex items-center justify-center relative overflow-hidden bg-[#F8FAFC]">
       <div className="container relative z-10 py-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -48,10 +48,10 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="absolute inset-0 -z-10 opacity-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background to-background/20" />
+      <div className="absolute inset-0 -z-10 opacity-10">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F8FAFC]/80 via-[#F8FAFC] to-[#F8FAFC]/20" />
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(0 0 0 / 0.1) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(0 0 0 / 0.05) 1px, transparent 0)`,
           backgroundSize: '32px 32px'
         }} />
       </div>

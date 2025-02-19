@@ -47,7 +47,7 @@ const aiTech = [
 
 export default function TechStack() {
   return (
-    <section className="py-24 bg-[#fafafa]">
+    <section className="py-24 bg-[#F8FAFC]">
       <div className="container max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -68,7 +68,7 @@ export default function TechStack() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+              <Card className="h-full bg-white hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-6">
                   <div className="mb-4">
                     {tech.icon ? (
