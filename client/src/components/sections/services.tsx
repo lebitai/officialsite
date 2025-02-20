@@ -56,12 +56,14 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="h-full">
-                <CardHeader>
-                  <service.icon className="h-8 w-8 mb-4 text-primary" />
-                  <CardTitle>{service.title}</CardTitle>
+              <Card className="h-full flex flex-col">
+                <CardHeader className="flex-none pb-4">
+                  <div className="mb-4 flex items-center justify-center md:justify-start">
+                    <service.icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl leading-tight">{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1 flex items-center">
                   <p className="text-muted-foreground">{service.description}</p>
                 </CardContent>
               </Card>

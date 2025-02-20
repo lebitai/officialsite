@@ -64,45 +64,49 @@ export default function Consulting() {
         </motion.div>
 
         <Card>
-          <CardHeader>
-            <CardTitle>Consultation Package</CardTitle>
-            <CardDescription>
+          <CardHeader className="space-y-2">
+            <CardTitle className="text-2xl">Consultation Package</CardTitle>
+            <CardDescription className="text-base">
               1.5 hour personalized consultation session
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center gap-2">
-              <Clock className="h-5 w-5 text-primary" />
-              <span>90-minute deep-dive session</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="h-5 w-5 text-primary" />
-              <span>Infrastructure assessment and recommendations</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="h-5 w-5 text-primary" />
-              <span>Technology stack evaluation</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="h-5 w-5 text-primary" />
-              <span>Security best practices review</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="h-5 w-5 text-primary" />
-              <span>Actionable next steps plan</span>
-            </div>
-
-            <div className="mt-6 text-center">
-              <span className="text-3xl font-bold">$29.90</span>
+          <CardContent>
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center gap-3">
+                <Clock className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-base">90-minute deep-dive session</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Check className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-base">Infrastructure assessment and recommendations</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Check className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-base">Technology stack evaluation</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Check className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-base">Security best practices review</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Check className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-base">Actionable next steps plan</span>
+              </div>
             </div>
 
-            <Button
-              onClick={handleBooking}
-              className="w-full mt-6"
-              disabled={isProcessing}
-            >
-              {isProcessing ? "Processing..." : "Book Consultation"}
-            </Button>
+            <div className="text-center space-y-6">
+              <div className="flex items-center justify-center">
+                <span className="text-3xl font-bold">$29.90</span>
+              </div>
+
+              <Button
+                onClick={handleBooking}
+                className="w-full h-12 text-base"
+                disabled={isProcessing}
+              >
+                {isProcessing ? "Processing..." : "Book Consultation"}
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </div>
