@@ -26,7 +26,7 @@ export default function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
-        isScrolled ? "bg-[#0D0D0D]/95 backdrop-blur-md border-b border-[#1A1A1A]" : "bg-transparent"
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="container px-8 md:px-12 flex h-20 items-center justify-between">
@@ -39,17 +39,17 @@ export default function Navigation() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-12">
           <Link href="#services">
-            <a className="text-base font-medium text-[#E5E5E5] hover:text-[#E5C992] transition-colors">
+            <a className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors">
               Services
             </a>
           </Link>
-          <Link href="#tech-stack">
-            <a className="text-base font-medium text-[#E5E5E5] hover:text-[#E5C992] transition-colors">
+          <Link href="#technology">
+            <a className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors">
               Technology
             </a>
           </Link>
           <Link href="#consulting">
-            <Button variant="default" size="lg" className="btn-gradient">
+            <Button size="lg" className="btn-primary">
               Book Now
             </Button>
           </Link>
@@ -58,7 +58,7 @@ export default function Navigation() {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className="md:hidden text-[#E5E5E5] hover:text-[#E5C992] transition-colors"
+          className="md:hidden text-zinc-600 hover:text-[#645BFF] transition-colors"
         >
           {isMobileMenuOpen ? (
             <X className="h-6 w-6" />
@@ -75,20 +75,20 @@ export default function Navigation() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 right-0 bg-[#0D0D0D]/95 backdrop-blur-md border-b border-[#1A1A1A] shadow-lg md:hidden"
+              className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg md:hidden"
             >
               <nav className="container px-8 py-8 flex flex-col items-center gap-6">
                 <Link href="#services">
                   <a 
-                    className="text-lg font-medium text-[#E5E5E5] hover:text-[#E5C992] transition-colors"
+                    className="text-lg font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Services
                   </a>
                 </Link>
-                <Link href="#tech-stack">
+                <Link href="#technology">
                   <a 
-                    className="text-lg font-medium text-[#E5E5E5] hover:text-[#E5C992] transition-colors"
+                    className="text-lg font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Technology
@@ -96,9 +96,8 @@ export default function Navigation() {
                 </Link>
                 <Link href="#consulting">
                   <Button 
-                    variant="default" 
                     size="lg" 
-                    className="w-[200px] mt-2 btn-gradient"
+                    className="btn-primary w-[200px] mt-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Book Now
