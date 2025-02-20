@@ -29,22 +29,22 @@ export default function Navigation() {
         isScrolled ? "bg-background/95 backdrop-blur-md border-b" : "bg-transparent"
       }`}
     >
-      <div className="container flex h-20 items-center justify-between">
+      <div className="container px-6 md:px-8 flex h-20 items-center justify-between">
         <Link href="/">
-          <a className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+          <a className="text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent transition-colors">
             LebitAI
           </a>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           <Link href="#services">
-            <a className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            <a className="text-base font-medium text-muted-foreground hover:text-primary transition-colors">
               Services
             </a>
           </Link>
           <Link href="#tech-stack">
-            <a className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            <a className="text-base font-medium text-muted-foreground hover:text-primary transition-colors">
               Technology
             </a>
           </Link>
@@ -77,10 +77,10 @@ export default function Navigation() {
               transition={{ duration: 0.2 }}
               className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b shadow-lg md:hidden"
             >
-              <nav className="container py-4 flex flex-col gap-4">
+              <nav className="container py-6 flex flex-col gap-4">
                 <Link href="#services">
                   <a 
-                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                    className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors text-center"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Services
@@ -88,7 +88,7 @@ export default function Navigation() {
                 </Link>
                 <Link href="#tech-stack">
                   <a 
-                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                    className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors text-center"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Technology
@@ -98,7 +98,7 @@ export default function Navigation() {
                   <Button 
                     variant="default" 
                     size="lg" 
-                    className="w-full"
+                    className="w-full mt-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Book Now
