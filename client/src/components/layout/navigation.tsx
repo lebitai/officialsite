@@ -16,8 +16,13 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+  const scrollToConsulting = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.querySelector('#consulting')?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -49,7 +54,11 @@ export default function Navigation() {
             </a>
           </Link>
           <Link href="#consulting">
-            <Button size="lg" className="btn-primary">
+            <Button 
+              size="lg" 
+              className="btn-primary"
+              onClick={scrollToConsulting}
+            >
               Book Now
             </Button>
           </Link>
@@ -57,7 +66,7 @@ export default function Navigation() {
 
         {/* Mobile Menu Button */}
         <button
-          onClick={toggleMobileMenu}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="md:hidden text-zinc-600 hover:text-[#645BFF] transition-colors"
         >
           {isMobileMenuOpen ? (
@@ -98,7 +107,7 @@ export default function Navigation() {
                   <Button 
                     size="lg" 
                     className="btn-primary w-[200px] mt-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={scrollToConsulting}
                   >
                     Book Now
                   </Button>
