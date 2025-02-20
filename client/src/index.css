@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply font-sans antialiased bg-[#E5F6F6] text-foreground;
+    @apply font-sans antialiased bg-[#0D0D0D] text-[#E5E5E5];
   }
 }
 
@@ -19,15 +19,24 @@ html {
 
 .bg-gradient-pattern {
   background-image: 
-    radial-gradient(circle at 1px 1px, rgb(0 0 0 / 0.03) 1px, transparent 0);
+    radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.03) 1px, transparent 0);
   background-size: 32px 32px;
 }
 
 .bg-hero-gradient {
   background: linear-gradient(
     to bottom,
-    #E5F6F6 0%,
-    rgba(229, 246, 246, 0.8) 50%,
-    #E5F6F6 100%
+    rgba(13, 13, 13, 0.95) 0%,
+    rgba(13, 13, 13, 0.8) 50%,
+    rgba(13, 13, 13, 0.95) 100%
   );
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-[#E5C992] to-[#D4AF6A] bg-clip-text text-transparent;
+}
+
+.btn-gradient {
+  @apply bg-gradient-to-r from-[#E5C992] to-[#D4AF6A] text-[#0D0D0D] font-medium 
+         hover:from-[#D4AF6A] hover:to-[#E5C992] transition-all duration-300;
 }
