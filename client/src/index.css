@@ -19,24 +19,40 @@ html {
 
 .bg-gradient-pattern {
   background-image: 
-    radial-gradient(circle at 1px 1px, rgb(99 91 255 / 0.05) 1px, transparent 0);
-  background-size: 32px 32px;
+    radial-gradient(circle at 1px 1px, rgb(99 91 255 / 0.15) 2px, transparent 0),
+    linear-gradient(to right, rgb(99 91 255 / 0.05), rgb(165 148 255 / 0.05));
+  background-size: 32px 32px, 100% 100%;
 }
 
 .text-gradient {
-  @apply bg-gradient-to-r from-[#645BFF] to-[#645BFF]/80 bg-clip-text text-transparent;
+  @apply bg-gradient-to-br from-[#645BFF] via-[#A594FF] to-[#645BFF] bg-clip-text text-transparent;
 }
 
 .btn-primary {
-  @apply bg-[#645BFF] text-white font-medium hover:bg-[#645BFF]/90 
-         transition-all duration-300 rounded-full px-8;
+  @apply bg-gradient-to-r from-[#645BFF] to-[#A594FF] text-white font-medium 
+         hover:from-[#7C6FFF] hover:to-[#BAA8FF] 
+         transition-all duration-300 rounded-2xl px-8 shadow-md;
 }
 
 .bg-hero-gradient {
   background: linear-gradient(
-    to bottom,
-    rgba(13, 13, 13, 0.95) 0%,
-    rgba(13, 13, 13, 0.8) 50%,
-    rgba(13, 13, 13, 0.95) 100%
+    135deg,
+    rgb(100 91 255 / 0.08) 0%,
+    rgb(165 148 255 / 0.05) 50%,
+    rgb(100 91 255 / 0.08) 100%
   );
+}
+
+.section-gradient {
+  @apply bg-gradient-to-b from-white via-[#F8F7FF] to-white;
+}
+
+.highlight-box {
+  @apply rounded-2xl bg-gradient-to-br from-[#645BFF]/5 to-[#A594FF]/5 p-6;
+}
+
+.pattern-grid {
+  background-image: linear-gradient(to right, rgb(99 91 255 / 0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgb(99 91 255 / 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
