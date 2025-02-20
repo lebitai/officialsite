@@ -57,7 +57,7 @@ export default function Consulting() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Web3/GenAI Basic Setup Consulting</h2>
+          <h2 className="text-3xl font-bold mb-4">Web3 & GenAI Consulting</h2>
           <p className="text-muted-foreground">
             Get expert guidance to kickstart your journey into Web3 and Generative AI
           </p>
