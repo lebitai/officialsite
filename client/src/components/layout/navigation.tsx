@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Logo } from "@/components/ui/logo";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,11 +36,7 @@ export default function Navigation() {
       }`}
     >
       <div className="container px-8 md:px-12 flex h-20 items-center justify-between">
-        <Link href="/">
-          <a className="text-2xl md:text-3xl font-bold tracking-tight text-gradient">
-            LebitAI
-          </a>
-        </Link>
+        <Logo />
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-12">

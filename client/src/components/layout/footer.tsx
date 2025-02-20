@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { SiX, SiLinkedin } from "react-icons/si";
+import { Logo } from "@/components/ui/logo";
 
 export default function Footer() {
   return (
@@ -7,7 +8,9 @@ export default function Footer() {
       <div className="container min-h-[50vh] md:min-h-0 py-8 md:py-12 flex flex-col justify-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           <div className="text-center md:text-left">
-            <h3 className="text-xl md:text-lg font-semibold mb-4">LebitAI</h3>
+            <div className="mb-4">
+              <Logo className="mx-auto md:mx-0" />
+            </div>
             <p className="text-base md:text-sm text-muted-foreground">
               Empowering businesses with next-generation AI and blockchain solutions.
             </p>
