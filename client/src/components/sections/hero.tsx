@@ -41,7 +41,17 @@ export default function Hero() {
             className="space-y-4"
           >
             <Link href="#consulting">
-              <Button size="lg" className="btn-primary text-base sm:text-lg h-12 px-8 sm:px-10">
+              <Button 
+                size="lg" 
+                className="btn-primary text-base sm:text-lg h-12 px-8 sm:px-10"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#consulting')?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }}
+              >
                 Get Started
               </Button>
             </Link>
