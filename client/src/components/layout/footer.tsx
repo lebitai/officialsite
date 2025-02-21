@@ -8,9 +8,9 @@ export default function Footer() {
       <div className="container max-w-4xl mx-auto py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo and Description Column */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start">
             <Logo className="mb-4" />
-            <p className="text-sm text-muted-foreground text-center max-w-xs">
+            <p className="text-sm text-muted-foreground text-left">
               Empowering businesses with next-generation AI and blockchain solutions.
             </p>
           </div>
