@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Database, Brain, Shield, Zap, Scale } from "lucide-react";
+import { Database, Brain, Shield, Zap, Scale, Cloud } from "lucide-react";
 
 const services = [
   {
@@ -28,12 +28,17 @@ const services = [
     title: "Performance & Scalability Strategy",
     description: "Optimize your infrastructure for peak performance and seamless scaling capabilities.",
   },
+  {
+    icon: Cloud,
+    title: "Enterprise Private Deployment",
+    description: "Customized private cloud deployment solutions ensuring data sovereignty and security compliance.",
+  },
 ];
 
 export default function Services() {
   return (
     <section id="services" className="py-20 bg-muted/20">
-      <div className="container">
+      <div className="container max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
