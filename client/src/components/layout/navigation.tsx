@@ -48,10 +48,10 @@ export default function Navigation() {
               Services
             </a>
           </Link>
-          <Link href="#technology">
+          <Link href="#tech-stack">
             <a 
               className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
-              onClick={(e) => scrollToSection('technology', e)}
+              onClick={(e) => scrollToSection('tech-stack', e)}
             >
               Technology
             </a>
@@ -98,10 +98,10 @@ export default function Navigation() {
                     Services
                   </a>
                 </Link>
-                <Link href="#technology">
+                <Link href="#tech-stack">
                   <a 
                     className="text-lg font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
-                    onClick={(e) => scrollToSection('technology', e)}
+                    onClick={(e) => scrollToSection('tech-stack', e)}
                   >
                     Technology
                   </a>
