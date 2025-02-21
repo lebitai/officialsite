@@ -46,8 +46,8 @@ export default function Consulting() {
 
   return (
     <section id="consulting" className="py-20">
-      <div className="container max-w-4xl mx-auto">
-        <Card className="p-8">
+      <div className="container max-w-2xl mx-auto px-4">
+        <Card className="p-6 sm:p-8">
           <CardContent className="p-0 space-y-8">
             <div className="text-center space-y-2">
               <h2 className="text-2xl font-bold">Web3 & GenAI Consulting</h2>

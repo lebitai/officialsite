@@ -5,7 +5,7 @@ import { Logo } from "@/components/ui/logo";
 export default function Footer() {
   return (
     <footer className="border-t">
-      <div className="container py-16">
+      <div className="container max-w-4xl mx-auto py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo and Description Column */}
           <div className="flex flex-col items-center">
