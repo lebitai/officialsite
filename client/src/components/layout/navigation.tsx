@@ -17,9 +17,9 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToConsulting = (e: React.MouseEvent) => {
+  const scrollToSection = (sectionId: string, e: React.MouseEvent) => {
     e.preventDefault();
-    document.querySelector('#consulting')?.scrollIntoView({ 
+    document.querySelector(`#${sectionId}`)?.scrollIntoView({ 
       behavior: 'smooth',
       block: 'start'
     });
@@ -41,12 +41,18 @@ export default function Navigation() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-12">
           <Link href="#services">
-            <a className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors">
+            <a 
+              className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
+              onClick={(e) => scrollToSection('services', e)}
+            >
               Services
             </a>
           </Link>
           <Link href="#technology">
-            <a className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors">
+            <a 
+              className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
+              onClick={(e) => scrollToSection('technology', e)}
+            >
               Technology
             </a>
           </Link>
@@ -54,7 +60,7 @@ export default function Navigation() {
             <Button 
               size="lg" 
               className="btn-primary"
-              onClick={scrollToConsulting}
+              onClick={(e) => scrollToSection('consulting', e)}
             >
               Book Now
             </Button>
@@ -87,7 +93,7 @@ export default function Navigation() {
                 <Link href="#services">
                   <a 
                     className="text-lg font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => scrollToSection('services', e)}
                   >
                     Services
                   </a>
@@ -95,7 +101,7 @@ export default function Navigation() {
                 <Link href="#technology">
                   <a 
                     className="text-lg font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => scrollToSection('technology', e)}
                   >
                     Technology
                   </a>
@@ -104,7 +110,7 @@ export default function Navigation() {
                   <Button 
                     size="lg" 
                     className="btn-primary w-[200px] mt-2"
-                    onClick={scrollToConsulting}
+                    onClick={(e) => scrollToSection('consulting', e)}
                   >
                     Book Now
                   </Button>
