@@ -1,47 +1,14 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
 } from "@/components/ui/card";
-import { useToast } from "@/hooks/use-toast";
 import { Clock, Check } from "lucide-react";
 
 export default function Consulting() {
-  const { toast } = useToast();
-  const [isProcessing, setIsProcessing] = useState(false);
-
-  const mutation = useMutation({
-    mutationFn: async () => {
-      const response = await apiRequest("POST", "/api/create-checkout-session", {
-        email: "",  // Stripe will collect this
-        name: "",   // Stripe will collect this
-        company: "" // Stripe will collect this
-      });
-      const json = await response.json();
-      return json;
-    },
-    onSuccess: (data) => {
-      if (data.url) {
-        window.location.href = data.url;
-      }
-    },
-    onError: () => {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Failed to start checkout process. Please try again.",
-      });
-      setIsProcessing(false);
-    },
-  });
-
   const handleBooking = () => {
-    setIsProcessing(true);
-    mutation.mutate();
+    window.location.href = "https://buy.stripe.com/5kAeXXgtE8K2eBO7ss";
   };
 
   return (
@@ -92,9 +59,8 @@ export default function Consulting() {
                 <Button
                   onClick={handleBooking}
                   className="w-full h-12 text-base"
-                  disabled={isProcessing}
                 >
-                  {isProcessing ? "Processing..." : "Book Consultation"}
+                  Book Consultation
                 </Button>
               </div>
             </div>
