@@ -16,8 +16,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertContactSchema } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/hooks/use-language";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   
   const form = useForm({
@@ -64,9 +66,9 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+          <h2 className="text-3xl font-bold mb-4">{t.contact.title}</h2>
           <p className="text-muted-foreground">
-            Get in touch with our team to discuss your needs
+            {t.contact.subtitle}
           </p>
         </motion.div>
 
@@ -77,7 +79,7 @@ export default function Contact() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>{t.contact.form.name}</FormLabel>
                   <FormControl>
                     <Input placeholder="Your name" {...field} />
                   </FormControl>
@@ -90,7 +92,7 @@ export default function Contact() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>{t.contact.form.email}</FormLabel>
                   <FormControl>
                     <Input placeholder="your@email.com" {...field} />
                   </FormControl>
@@ -103,7 +105,7 @@ export default function Contact() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel>{t.contact.form.message}</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="How can we help?"
@@ -120,7 +122,7 @@ export default function Contact() {
               className="w-full"
               disabled={mutation.isPending}
             >
-              {mutation.isPending ? "Sending..." : "Send Message"}
+              {mutation.isPending ? "Sending..." : t.contact.form.send}
             </Button>
           </form>
         </Form>

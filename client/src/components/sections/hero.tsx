@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { useLanguage } from "@/hooks/use-language";
 
 export default function Hero() {
+  const { t } = useLanguage();
+  
   return (
     <section className="min-h-[90vh] flex items-center justify-center relative overflow-hidden">
       <div className="container relative z-10 py-24 px-4 sm:px-6 lg:px-8">
@@ -18,11 +21,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 sm:mb-8"
           >
-            Discover the joy of{" "}
-            <span className="text-gradient">
-              effortless
-            </span>{" "}
-            tech solutions
+{t.hero.title}
           </motion.h1>
 
           <motion.p 
@@ -31,7 +30,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto px-4"
           >
-            One platform for all your Web3 & AI infrastructure needs.
+{t.hero.subtitle}
           </motion.p>
 
           <motion.div 
@@ -52,7 +51,7 @@ export default function Hero() {
                   });
                 }}
               >
-                Get Started
+{t.hero.getStarted}
               </Button>
             </Link>
           </motion.div>

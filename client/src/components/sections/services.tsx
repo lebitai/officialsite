@@ -1,41 +1,20 @@
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Database, Brain, Shield, Zap, Scale, Cloud } from "lucide-react";
+import { useLanguage } from "@/hooks/use-language";
 
-const services = [
-  {
-    icon: Database,
-    title: "Enterprise Blockchain Infrastructure Design",
-    description: "Custom blockchain architecture tailored for enterprise needs with focus on scalability and security.",
-  },
-  {
-    icon: Brain,
-    title: "AI System Architecture Consulting",
-    description: "Expert guidance on implementing and scaling AI systems within your existing infrastructure.",
-  },
-  {
-    icon: Shield,
-    title: "Security & Compliance Implementation",
-    description: "Comprehensive security solutions ensuring regulatory compliance and data protection.",
-  },
-  {
-    icon: Zap,
-    title: "Technical Stack Modernization",
-    description: "Transform legacy systems into modern, efficient, and scalable architectures.",
-  },
-  {
-    icon: Scale,
-    title: "Performance & Scalability Strategy",
-    description: "Optimize your infrastructure for peak performance and seamless scaling capabilities.",
-  },
-  {
-    icon: Cloud,
-    title: "Enterprise Private Deployment",
-    description: "Customized private cloud deployment solutions ensuring data sovereignty and security compliance.",
-  },
+const serviceIcons = [
+  Database,
+  Brain,
+  Shield,
+  Zap,
+  Scale,
+  Cloud,
 ];
 
 export default function Services() {
+  const { t } = useLanguage();
+  
   return (
     <section id="services" className="py-20 bg-muted/20">
       <div className="container max-w-6xl mx-auto px-4 sm:px-6">
@@ -46,34 +25,34 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Services</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive solutions for modern enterprise infrastructure needs
-          </p>
+          <h2 className="text-3xl font-bold mb-4">{t.services.title}</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <Card className="h-full">
-                <div className="flex flex-col h-full p-6">
-                  <div className="flex items-center justify-center md:justify-start mb-6">
-                    <service.icon className="h-8 w-8 text-primary" />
+          {t.services.items.map((service, index) => {
+            const IconComponent = serviceIcons[index];
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Card className="h-full">
+                  <div className="flex flex-col h-full p-6">
+                    <div className="flex items-center justify-center md:justify-start mb-6">
+                      <IconComponent className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl mb-4">{service.title}</CardTitle>
+                    <p className="text-muted-foreground flex-grow flex items-center">
+                      {service.description}
+                    </p>
                   </div>
-                  <CardTitle className="text-xl mb-4">{service.title}</CardTitle>
-                  <p className="text-muted-foreground flex-grow flex items-center">
-                    {service.description}
-                  </p>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

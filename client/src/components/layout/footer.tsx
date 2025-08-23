@@ -1,8 +1,11 @@
 import { Link } from "wouter";
 import { SiX, SiLinkedin } from "react-icons/si";
 import { Logo } from "@/components/ui/logo";
+import { useLanguage } from "@/hooks/use-language";
 
 export default function Footer() {
+  const { t } = useLanguage();
+  
   return (
     <footer className="border-t">
       <div className="container max-w-4xl mx-auto py-16">
@@ -21,17 +24,17 @@ export default function Footer() {
             <nav className="flex flex-col items-center space-y-2">
               <Link href="#services">
                 <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Services
+                  {t.footer.services}
                 </a>
               </Link>
               <Link href="#consulting">
                 <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Consulting
+                  {t.footer.consulting}
                 </a>
               </Link>
               <Link href="#contact">
                 <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Contact
+                  {t.footer.contact}
                 </a>
               </Link>
             </nav>
@@ -39,7 +42,7 @@ export default function Footer() {
 
           {/* Connect Column */}
           <div className="flex flex-col items-center">
-            <h3 className="text-lg font-semibold mb-4">Connect</h3>
+            <h3 className="text-lg font-semibold mb-4">{t.footer.social}</h3>
             <div className="flex items-center space-x-4">
               <a
                 href="https://twitter.com/lebitai"
@@ -63,7 +66,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t">
           <p className="text-sm text-muted-foreground text-center">
-            © {new Date().getFullYear()} LebitAI. All rights reserved.
+            {t.footer.copyright}
           </p>
         </div>
       </div>

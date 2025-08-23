@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/ui/logo";
+import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import { useLanguage } from "@/hooks/use-language";
 
 export default function Navigation() {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -39,13 +42,13 @@ export default function Navigation() {
         <Logo />
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-12">
+        <nav className="hidden md:flex items-center gap-8">
           <Link href="#services">
             <a 
               className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
               onClick={(e) => scrollToSection('services', e)}
             >
-              Services
+              {t.nav.services}
             </a>
           </Link>
           <Link href="#tech-stack">
@@ -53,31 +56,35 @@ export default function Navigation() {
               className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
               onClick={(e) => scrollToSection('tech-stack', e)}
             >
-              Technology
+              {t.nav.technology}
             </a>
           </Link>
+          <LanguageSwitcher />
           <Link href="#consulting">
             <Button 
               size="lg" 
               className="btn-primary"
               onClick={(e) => scrollToSection('consulting', e)}
             >
-              Book Now
+              {t.nav.bookNow}
             </Button>
           </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden text-zinc-600 hover:text-[#645BFF] transition-colors"
-        >
-          {isMobileMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
-        </button>
+        {/* Mobile Controls */}
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-zinc-600 hover:text-[#645BFF] transition-colors"
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
 
         {/* Mobile Menu */}
         <AnimatePresence>
@@ -95,7 +102,7 @@ export default function Navigation() {
                     className="text-lg font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
                     onClick={(e) => scrollToSection('services', e)}
                   >
-                    Services
+                    {t.nav.services}
                   </a>
                 </Link>
                 <Link href="#tech-stack">
@@ -103,7 +110,7 @@ export default function Navigation() {
                     className="text-lg font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
                     onClick={(e) => scrollToSection('tech-stack', e)}
                   >
-                    Technology
+                    {t.nav.technology}
                   </a>
                 </Link>
                 <Link href="#consulting">
@@ -112,7 +119,7 @@ export default function Navigation() {
                     className="btn-primary w-[200px] mt-2"
                     onClick={(e) => scrollToSection('consulting', e)}
                   >
-                    Book Now
+                    {t.nav.bookNow}
                   </Button>
                 </Link>
               </nav>

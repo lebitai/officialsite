@@ -1,8 +1,16 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { SiEthereum, SiSolana } from "react-icons/si";
+import { useLanguage } from "@/hooks/use-language";
 
-const blockchainTech = [
+interface TechItem {
+  name: string;
+  question: string;
+  icon?: React.ComponentType<{ className?: string }> | string;
+  customIcon?: React.ReactNode;
+}
+
+const blockchainTech: TechItem[] = [
   {
     icon: SiEthereum,
     name: "Ethereum",
@@ -27,7 +35,7 @@ const blockchainTech = [
   }
 ];
 
-const aiTech = [
+const aiTech: TechItem[] = [
   {
     name: "DeepSeek",
     question: "Deploy custom LLMs?",
@@ -46,6 +54,8 @@ const aiTech = [
 ];
 
 export default function TechStack() {
+  const { t } = useLanguage();
+  
   return (
     <section id="tech-stack" className="py-16 sm:py-20 md:py-24 bg-[#F8FAFC]">
       <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,39 +66,46 @@ export default function TechStack() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Technical Problems We Solve</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">技术解决方案</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {[...blockchainTech, ...aiTech].map((tech, index) => (
-            <motion.div
-              key={tech.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="h-full bg-white hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-4 sm:p-6">
-                  <div className="mb-4">
-                    {tech.icon ? (
-                      typeof tech.icon === 'string' ? (
-                        <span className="text-3xl sm:text-4xl">{tech.icon}</span>
+          {t.techStack.questions.map((question, index) => {
+            const techIndex = index % 6;
+            const allTech = [...blockchainTech, ...aiTech];
+            const tech = allTech[techIndex];
+            const techName = index < 3 ? t.techStack.technologies.blockchain[index] || tech.name : t.techStack.technologies.ai[index - 3] || tech.name;
+            
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="h-full bg-white hover:shadow-lg transition-shadow duration-300">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="mb-4">
+                      {tech.icon ? (
+                        typeof tech.icon === 'string' ? (
+                          <span className="text-3xl sm:text-4xl">{tech.icon}</span>
+                        ) : (
+                          <tech.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+                        )
                       ) : (
-                        <tech.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
-                      )
-                    ) : (
-                      <div className="h-6 w-6 sm:h-8 sm:w-8 text-primary">
-                        {tech.customIcon}
-                      </div>
-                    )}
-                  </div>
-                  <h3 className="text-base sm:text-lg font-semibold mb-2">{tech.question}</h3>
-                  <p className="text-sm text-muted-foreground">{tech.name}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                        <div className="h-6 w-6 sm:h-8 sm:w-8 text-primary">
+                          {tech.customIcon}
+                        </div>
+                      )}
+                    </div>
+                    <h3 className="text-base sm:text-lg font-semibold mb-2">{question}</h3>
+                    <p className="text-sm text-muted-foreground">{techName}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
