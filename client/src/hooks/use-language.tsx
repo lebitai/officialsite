@@ -94,8 +94,8 @@ const translations: Record<Language, Translations> = {
       bookNow: 'Book Now',
     },
     hero: {
-      title: 'Experts with rich experience in cutting-edge tech products and projects at your service',
-      subtitle: 'One valuable project consultation to answer all your Web3 and AI infrastructure questions.',
+      title: 'Experts with rich experience in leading tech products and projects at your service',
+      subtitle: 'Deep experience in Web3 × AI infrastructure, avoid detours and go live fast.',
       getStarted: 'Get Started',
     },
     consulting: {
@@ -201,8 +201,8 @@ const translations: Record<Language, Translations> = {
       bookNow: '立即预订',
     },
     hero: {
-      title: '丰富且具有前沿科技产品和项目实践的专家为您服务',
-      subtitle: '一次有价值的项目咨询,满足您关于 Web3和AI 基础设施的问题解答',
+      title: '丰富且具有领先科技产品和项目实践的专家为您服务',
+      subtitle: 'Web3 × AI 基建深度经验沉淀，少走弯路、快速上线',
       getStarted: '开始使用',
     },
     consulting: {
