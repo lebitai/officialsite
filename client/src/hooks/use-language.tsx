@@ -94,7 +94,7 @@ const translations: Record<Language, Translations> = {
       bookNow: 'Book Now',
     },
     hero: {
-      title: 'Experts with rich experience in leading tech products and projects at your service',
+      title: 'Transform "Cutting-edge" into "Leading"',
       subtitle: 'Deep experience in Web3 × AI infrastructure, avoid detours and go live fast.',
       getStarted: 'Get Started',
     },
@@ -201,7 +201,7 @@ const translations: Record<Language, Translations> = {
       bookNow: '立即预订',
     },
     hero: {
-      title: '丰富且具有领先科技产品和项目实践的专家为您服务',
+      title: '把"前沿"转化为"领先"',
       subtitle: 'Web3 × AI 基建深度经验沉淀，少走弯路、快速上线',
       getStarted: '开始使用',
     },
