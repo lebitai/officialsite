@@ -13,12 +13,11 @@ export default function Consulting() {
   const { t } = useLanguage();
   
   const handleBasicBooking = () => {
-    window.location.href = "https://buy.stripe.com/5kAeXXgtE8K2eBO7ss";
+    window.location.href = "https://buy.stripe.com/7sY9AUa8i45Y7g81854Ni01";
   };
 
   const handlePremiumBooking = () => {
-    // 预留按钮，稍后替换支付链接
-    console.log("Premium consultation booking - link to be provided");
+    window.location.href = "https://buy.stripe.com/9B65kEfsC0TMdEw2c94Ni02";
   };
 
   return (
@@ -112,7 +111,6 @@ export default function Consulting() {
                   <Button
                     onClick={handlePremiumBooking}
                     className="w-full h-12 text-base"
-                    disabled
                   >
                     {t.consulting.premiumPlan.button}
                   </Button>
