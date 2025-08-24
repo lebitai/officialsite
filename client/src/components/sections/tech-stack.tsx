@@ -66,7 +66,7 @@ export default function TechStack() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">技术解决方案</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">{t.techStack.title}</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

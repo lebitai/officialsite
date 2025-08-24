@@ -50,6 +50,7 @@ interface Translations {
   
   // Tech Stack Section
   techStack: {
+    title: string;
     questions: string[];
     technologies: {
       blockchain: string[];
@@ -160,6 +161,7 @@ const translations: Record<Language, Translations> = {
       ],
     },
     techStack: {
+      title: 'Technical Solutions',
       questions: [
         'Setup smart contract infrastructure?',
         'Deploy AI-powered applications?',
@@ -267,6 +269,7 @@ const translations: Record<Language, Translations> = {
       ],
     },
     techStack: {
+      title: '技术解决方案',
       questions: [
         '搭建智能合约基础设施？',
         '部署 AI 驱动应用？',
