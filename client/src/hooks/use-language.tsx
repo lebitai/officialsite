@@ -316,7 +316,7 @@ interface LanguageProviderProps {
 }
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
-  const [language, setLanguage] = useState<Language>('zh'); // 默认中文
+  const [language, setLanguage] = useState<Language>('en'); // 默认英文
 
   const value = {
     language,
