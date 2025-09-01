@@ -23,20 +23,23 @@ export default function Footer() {
           <div className="flex flex-col items-center">
             <h3 className="text-lg font-semibold mb-4">Navigation</h3>
             <nav className="flex flex-col items-center space-y-2">
-              <Link href="#services">
-                <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  {t.footer.services}
-                </a>
+              <Link 
+                href="#services"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {t.footer.services}
               </Link>
-              <Link href="#consulting">
-                <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  {t.footer.consulting}
-                </a>
+              <Link 
+                href="#consulting"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {t.footer.consulting}
               </Link>
-              <Link href="#contact">
-                <a className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  {t.footer.contact}
-                </a>
+              <Link 
+                href="#contact"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {t.footer.contact}
               </Link>
             </nav>
           </div>
