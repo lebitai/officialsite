@@ -43,21 +43,19 @@ export default function Navigation() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="#services">
-            <a 
-              className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
-              onClick={(e) => scrollToSection('services', e)}
-            >
-              {t.nav.services}
-            </a>
+          <Link 
+            href="#services"
+            className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
+            onClick={(e) => scrollToSection('services', e)}
+          >
+            {t.nav.services}
           </Link>
-          <Link href="#tech-stack">
-            <a 
-              className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
-              onClick={(e) => scrollToSection('tech-stack', e)}
-            >
-              {t.nav.technology}
-            </a>
+          <Link 
+            href="#tech-stack"
+            className="text-base font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
+            onClick={(e) => scrollToSection('tech-stack', e)}
+          >
+            {t.nav.technology}
           </Link>
           <LanguageSwitcher />
           <Link href="#consulting">
@@ -97,21 +95,19 @@ export default function Navigation() {
               className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg md:hidden"
             >
               <nav className="container px-8 py-8 flex flex-col items-center gap-6">
-                <Link href="#services">
-                  <a 
-                    className="text-lg font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
-                    onClick={(e) => scrollToSection('services', e)}
-                  >
-                    {t.nav.services}
-                  </a>
+                <Link 
+                  href="#services"
+                  className="text-lg font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
+                  onClick={(e) => scrollToSection('services', e)}
+                >
+                  {t.nav.services}
                 </Link>
-                <Link href="#tech-stack">
-                  <a 
-                    className="text-lg font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
-                    onClick={(e) => scrollToSection('tech-stack', e)}
-                  >
-                    {t.nav.technology}
-                  </a>
+                <Link 
+                  href="#tech-stack"
+                  className="text-lg font-medium text-zinc-600 hover:text-[#645BFF] transition-colors"
+                  onClick={(e) => scrollToSection('tech-stack', e)}
+                >
+                  {t.nav.technology}
                 </Link>
                 <Link href="#consulting">
                   <Button 

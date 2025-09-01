@@ -8,7 +8,15 @@
   }
 
   body {
-    @apply font-sans antialiased bg-white text-zinc-900;
+    @apply font-sans antialiased text-zinc-900;
+    background: linear-gradient(
+      180deg,
+      rgb(230 224 255 / 0.3) 0%,
+      rgb(245 243 255 / 0.2) 25%,
+      rgb(250 249 255 / 0.1) 50%,
+      rgb(255 255 255 / 1) 100%
+    );
+    min-height: 100vh;
   }
 }
 
@@ -37,18 +45,34 @@ html {
 .bg-hero-gradient {
   background: linear-gradient(
     135deg,
-    rgb(100 91 255 / 0.08) 0%,
-    rgb(165 148 255 / 0.05) 50%,
-    rgb(100 91 255 / 0.08) 100%
+    rgb(230 224 255 / 0.15) 0%,
+    rgb(245 243 255 / 0.08) 30%,
+    rgb(255 255 255 / 0.02) 70%,
+    rgb(255 255 255 / 0) 100%
   );
 }
 
 .section-gradient {
-  @apply bg-gradient-to-b from-white via-[#F8F7FF] to-white;
+  background: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 0) 0%,
+    rgb(240 238 255 / 0.15) 20%,
+    rgb(248 247 255 / 0.25) 50%,
+    rgb(240 238 255 / 0.15) 80%,
+    rgb(255 255 255 / 0) 100%
+  );
 }
 
 .highlight-box {
-  @apply rounded-2xl bg-gradient-to-br from-[#645BFF]/5 to-[#A594FF]/5 p-6;
+  @apply rounded-2xl p-6;
+  background: linear-gradient(
+    135deg,
+    rgb(230 224 255 / 0.2) 0%,
+    rgb(245 243 255 / 0.15) 50%,
+    rgb(255 255 255 / 0.8) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(230 224 255 / 0.3);
 }
 
 .pattern-grid {
