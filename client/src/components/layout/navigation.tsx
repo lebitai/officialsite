@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/ui/logo";
-import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { useLanguage } from "@/hooks/use-language";
 
 export default function Navigation() {
@@ -57,7 +56,6 @@ export default function Navigation() {
           >
             {t.nav.technology}
           </Link>
-          <LanguageSwitcher />
           <Link href="#consulting">
             <Button 
               size="lg" 
@@ -71,7 +69,6 @@ export default function Navigation() {
 
         {/* Mobile Controls */}
         <div className="md:hidden flex items-center gap-2">
-          <LanguageSwitcher />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="text-zinc-600 hover:text-[#645BFF] transition-colors"

@@ -2,6 +2,8 @@
 
 LebitAI is a modern full-stack web application that provides Web3 and Generative AI consulting services. The platform features a professional landing page with service offerings, technology showcases, and an integrated Stripe payment system for consulting bookings. Built with a React frontend and Express backend, the application emphasizes clean design and seamless user experience for technical consulting services.
 
+**Language**: English-only website (Chinese language support has been removed as per user request)
+
 # User Preferences
 
 Preferred communication style: Simple, everyday language.
