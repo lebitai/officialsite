@@ -79,7 +79,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-zinc-800">
           <p className="text-sm text-zinc-500 text-center">
-            {t.footer.copyright}
+            © {new Date().getFullYear()} LebitAI. All rights reserved.
           </p>
         </div>
       </div>

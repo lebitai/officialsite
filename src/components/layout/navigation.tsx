@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/hooks/use-language";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import { Logo } from "@/components/ui/logo";
 
 export default function Navigation() {
   const { t } = useLanguage();
@@ -38,9 +39,7 @@ export default function Navigation() {
     >
       <div className="container px-8 md:px-16 flex h-20 items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-xl font-semibold text-white tracking-tight">
-          LebitAI
-        </Link>
+        <Logo />
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">

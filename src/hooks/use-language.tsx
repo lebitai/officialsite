@@ -10,7 +10,9 @@ interface Translations {
     contact: string;
   };
   hero: {
-    title: string;
+    titlePrefix: string;
+    titleSuffix: string;
+    rotatingWords: string[];
     subtitle: string;
     getStarted: string;
   };
@@ -86,7 +88,9 @@ const translations: Record<Language, Translations> = {
       contact: 'Contact',
     },
     hero: {
-      title: 'Transform "Cutting-edge" into "Leading"',
+      titlePrefix: 'Transform "Cutting-edge"',
+      titleSuffix: 'into',
+      rotatingWords: ['Leading', 'Business', 'Technology', 'Culture'],
       subtitle: 'Deep experience in Web3 × AI infrastructure. Avoid detours and go live fast.',
       getStarted: 'Get Started',
     },
@@ -205,7 +209,9 @@ const translations: Record<Language, Translations> = {
       contact: 'Kontakt',
     },
     hero: {
-      title: 'Verwandeln Sie "Spitzentechnologie" in "Marktführerschaft"',
+      titlePrefix: 'Verwandeln Sie "Spitzentechnologie"',
+      titleSuffix: 'in',
+      rotatingWords: ['Marktführerschaft', 'Geschäft', 'Technologie', 'Kultur'],
       subtitle: 'Tiefgreifende Erfahrung in Web3 × KI-Infrastruktur. Umwege vermeiden und schnell live gehen.',
       getStarted: 'Jetzt starten',
     },
@@ -324,7 +330,9 @@ const translations: Record<Language, Translations> = {
       contact: 'Contact',
     },
     hero: {
-      title: 'Transformez "Avant-garde" en "Leader"',
+      titlePrefix: 'Transformez "Avant-garde"',
+      titleSuffix: 'en',
+      rotatingWords: ['Leader', 'Affaires', 'Technologie', 'Culture'],
       subtitle: 'Expérience approfondie en infrastructure Web3 × IA. Évitez les détours et passez en production rapidement.',
       getStarted: 'Commencer',
     },
