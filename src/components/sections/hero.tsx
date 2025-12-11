@@ -5,7 +5,7 @@ import { useTypewriter } from "@/hooks/use-typewriter";
 
 export default function Hero() {
   const { t } = useLanguage();
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = useReducedMotion() ?? false;
   const { text: displayText, showCursor } = useTypewriter(t.hero.rotatingWords, {
     typeSpeed: 180,
     deleteSpeed: 100,
@@ -29,8 +29,10 @@ export default function Hero() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-6 sm:mb-8 text-white leading-[1.1]"
           >
             {t.hero.titlePrefix}<br />
-            {t.hero.titleSuffix} "<span className="text-cyan-400">{displayText}</span>
-            {showCursor && <span className="animate-pulse">|</span>}"
+            {t.hero.titleSuffix} <span aria-hidden="true">&ldquo;</span>
+            <span className="text-cyan-400">{displayText}</span>
+            {showCursor && <span className="animate-pulse">|</span>}
+            <span aria-hidden="true">&rdquo;</span>
           </motion.h1>
 
           <motion.p 
