@@ -1,65 +1,42 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
-import { useState, useEffect } from "react";
+import { useTypewriter } from "@/hooks/use-typewriter";
 
 export default function Hero() {
   const { t } = useLanguage();
-  
-  const words = t.hero.rotatingWords;
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  
-  useEffect(() => {
-    const currentWord = words[currentWordIndex];
-    const typingSpeed = isDeleting ? 80 : 150;
-    const pauseTime = 2500;
-    
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        if (displayText.length < currentWord.length) {
-          setDisplayText(currentWord.slice(0, displayText.length + 1));
-        } else {
-          setTimeout(() => setIsDeleting(true), pauseTime);
-        }
-      } else {
-        if (displayText.length > 0) {
-          setDisplayText(displayText.slice(0, -1));
-        } else {
-          setIsDeleting(false);
-          setCurrentWordIndex((prev) => (prev + 1) % words.length);
-        }
-      }
-    }, typingSpeed);
-    
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, currentWordIndex, words]);
+  const prefersReducedMotion = useReducedMotion();
+  const { text: displayText, showCursor } = useTypewriter(t.hero.rotatingWords, {
+    typeSpeed: 180,
+    deleteSpeed: 100,
+    pauseTime: 2600,
+    disabled: prefersReducedMotion,
+  });
   
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-8 md:px-16">
       {/* Content Container - Text at top */}
       <div className="relative z-10 text-center max-w-4xl mx-auto mb-8 md:mb-12">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={prefersReducedMotion ? undefined : { duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={prefersReducedMotion ? undefined : { duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-6 sm:mb-8 text-white leading-[1.1]"
           >
             {t.hero.titlePrefix}<br />
             {t.hero.titleSuffix} "<span className="text-cyan-400">{displayText}</span>
-            <span className="animate-pulse">|</span>"
+            {showCursor && <span className="animate-pulse">|</span>}"
           </motion.h1>
 
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={prefersReducedMotion ? undefined : { duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg text-zinc-400 max-w-xl mx-auto"
           >
             {t.hero.subtitle}
@@ -69,14 +46,14 @@ export default function Hero() {
 
       {/* Glowing Ring - centered below text */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
+        initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        transition={prefersReducedMotion ? undefined : { duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         className="relative w-[280px] h-[280px] md:w-[360px] md:h-[360px] lg:w-[440px] lg:h-[440px]"
       >
         {/* Outer glow - enhanced */}
-        <div className="absolute -inset-16 rounded-full bg-gradient-to-t from-purple-600/25 via-cyan-500/15 to-blue-500/10 blur-[80px]" />
-        <div className="absolute -inset-8 rounded-full bg-gradient-to-br from-cyan-400/15 via-transparent to-purple-500/15 blur-[50px]" />
+        <div className="absolute -inset-16 rounded-full bg-gradient-to-t from-purple-600/20 via-cyan-500/12 to-blue-500/8 blur-[60px] sm:blur-[80px]" />
+        <div className="absolute -inset-8 rounded-full bg-gradient-to-br from-cyan-400/12 via-transparent to-purple-500/12 blur-[40px] sm:blur-[50px]" />
         
         {/* Main ring with enhanced glow */}
         <div className="absolute inset-0 rounded-full border border-cyan-400/30 shadow-[0_0_50px_rgba(6,182,212,0.35),0_0_100px_rgba(6,182,212,0.15),inset_0_0_50px_rgba(6,182,212,0.08)]" />
@@ -87,17 +64,21 @@ export default function Hero() {
         {/* Floating stat cards - inside the ring with floating animation */}
         <motion.div 
           className="absolute -left-8 md:-left-16 lg:-left-20 top-1/3 glass-card rounded-xl px-4 py-3 z-20"
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ 
-            opacity: 1, 
-            x: 0,
-            y: [0, -8, 0]
-          }}
-          transition={{ 
-            opacity: { duration: 0.8, delay: 1 },
-            x: { duration: 0.8, delay: 1 },
-            y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-          }}
+          initial={prefersReducedMotion ? false : { opacity: 0, x: -30 }}
+          animate={
+            prefersReducedMotion
+              ? { opacity: 1 }
+              : { opacity: 1, x: 0, y: [0, -8, 0] }
+          }
+          transition={
+            prefersReducedMotion
+              ? undefined
+              : {
+                  opacity: { duration: 0.8, delay: 1 },
+                  x: { duration: 0.8, delay: 1 },
+                  y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                }
+          }
         >
           <div className="flex items-center gap-3">
             <div>
@@ -112,17 +93,21 @@ export default function Hero() {
 
         <motion.div 
           className="absolute -right-8 md:-right-16 lg:-right-20 bottom-1/3 glass-card rounded-xl px-4 py-3 z-20"
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ 
-            opacity: 1, 
-            x: 0,
-            y: [0, 8, 0]
-          }}
-          transition={{ 
-            opacity: { duration: 0.8, delay: 1.2 },
-            x: { duration: 0.8, delay: 1.2 },
-            y: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }
-          }}
+          initial={prefersReducedMotion ? false : { opacity: 0, x: 30 }}
+          animate={
+            prefersReducedMotion
+              ? { opacity: 1 }
+              : { opacity: 1, x: 0, y: [0, 8, 0] }
+          }
+          transition={
+            prefersReducedMotion
+              ? undefined
+              : {
+                  opacity: { duration: 0.8, delay: 1.2 },
+                  x: { duration: 0.8, delay: 1.2 },
+                  y: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
+                }
+          }
         >
           <div className="flex items-center gap-3">
             <div>
