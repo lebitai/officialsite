@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { Database, Brain, Shield, Zap, Scale, Cloud } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
 
-const serviceIcons = [
-  Database,
-  Brain,
-  Shield,
-  Zap,
-  Scale,
-  Cloud,
-];
+const serviceIconMap = {
+  blockchain: Database,
+  ai: Brain,
+  web3: Shield,
+  smartContract: Zap,
+  defi: Scale,
+  osaasc: Cloud,
+} as const;
 
 export default function Services() {
   const { t } = useLanguage();
@@ -30,7 +30,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {t.services.items.map((service, index) => {
-            const IconComponent = serviceIcons[index];
+            const IconComponent = serviceIconMap[service.iconKey] ?? Database;
             return (
               <motion.div
                 key={index}

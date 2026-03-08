@@ -4,20 +4,20 @@ import { useLanguage } from "@/hooks/use-language";
 
 interface TechItem {
   name: string;
-  question: string;
   icon?: React.ComponentType<{ className?: string }> | string;
   customIcon?: React.ReactNode;
+  group: "blockchain" | "ai";
 }
 
 const blockchainTech: TechItem[] = [
   {
     icon: SiEthereum,
     name: "Ethereum",
-    question: "Setup smart contract infrastructure?"
+    group: "blockchain",
   },
   {
     name: "Filecoin",
-    question: "Build decentralized storage?",
+    group: "blockchain",
     customIcon: (
       <svg viewBox="0 0 32 32" className="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -30,25 +30,25 @@ const blockchainTech: TechItem[] = [
   {
     icon: SiSolana,
     name: "Solana",
-    question: "Scale blockchain operations?"
+    group: "blockchain",
   }
 ];
 
 const aiTech: TechItem[] = [
   {
     name: "DeepSeek",
-    question: "Deploy custom LLMs?",
     icon: "🧠",
+    group: "ai",
   },
   {
     name: "LLama3",
-    question: "Implement open-source AI?",
     icon: "🦙",
+    group: "ai",
   },
   {
     name: "QWen3",
-    question: "Enterprise AI integration?",
     icon: "⚡",
+    group: "ai",
   }
 ];
 
@@ -69,16 +69,14 @@ export default function TechStack() {
           <div className="w-20 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto" />
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {t.techStack.questions.map((question, index) => {
-            const techIndex = index % 6;
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {t.techStack.items.map((item, index) => {
             const allTech = [...blockchainTech, ...aiTech];
-            const tech = allTech[techIndex];
-            const techName = index < 3 ? t.techStack.technologies.blockchain[index] || tech.name : t.techStack.technologies.ai[index - 3] || tech.name;
-            
+            const tech = allTech.find((tItem) => tItem.name === item.technology) ?? allTech[index % allTech.length];
+
             return (
               <motion.div
-                key={index}
+                key={`${item.technology}-${index}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -88,7 +86,7 @@ export default function TechStack() {
                   <div className="mb-4">
                     {tech.icon ? (
                       typeof tech.icon === 'string' ? (
-                        <span className="text-2xl">{tech.icon}</span>
+                        <span className="text-2xl" aria-hidden="true">{tech.icon}</span>
                       ) : (
                         <tech.icon className="h-6 w-6 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
                       )
@@ -98,8 +96,8 @@ export default function TechStack() {
                       </div>
                     )}
                   </div>
-                  <h3 className="text-sm font-medium text-white mb-2">{question}</h3>
-                  <p className="text-xs text-zinc-500">{techName}</p>
+                  <h3 className="text-sm font-medium text-white mb-2">{item.question}</h3>
+                  <p className="text-xs text-zinc-500">{item.technology}</p>
                 </div>
               </motion.div>
             );

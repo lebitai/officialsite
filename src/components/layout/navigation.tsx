@@ -5,9 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/hooks/use-language";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { Logo } from "@/components/ui/logo";
+import { useReducedMotion } from "framer-motion";
+import { scrollToSection } from "@/lib/scroll";
 
 export default function Navigation() {
   const { t } = useLanguage();
+  const prefersReducedMotion = useReducedMotion() ?? false;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -19,20 +22,16 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    document.querySelector(`#${sectionId}`)?.scrollIntoView({ 
-      behavior: 'smooth',
-      block: 'start'
-    });
+  const handleNavClick = (sectionId: string, e: React.MouseEvent) => {
+    scrollToSection(sectionId, e, true);
     setIsMobileMenuOpen(false);
   };
 
   return (
     <motion.header
-      initial={{ y: -100 }}
+      initial={prefersReducedMotion ? false : { y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      transition={prefersReducedMotion ? undefined : { duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         isScrolled ? "bg-zinc-900/80 backdrop-blur-md" : "bg-transparent"
       }`}
@@ -46,21 +45,21 @@ export default function Navigation() {
           <Link 
             href="#services"
             className="text-sm font-medium text-zinc-300 hover:text-white transition-colors"
-            onClick={(e) => scrollToSection('services', e)}
+            onClick={(e) => handleNavClick('services', e)}
           >
             {t.nav.services}
           </Link>
           <Link 
             href="#tech-stack"
             className="text-sm font-medium text-zinc-300 hover:text-white transition-colors"
-            onClick={(e) => scrollToSection('tech-stack', e)}
+            onClick={(e) => handleNavClick('tech-stack', e)}
           >
             {t.nav.technology}
           </Link>
           <Link 
             href="#consulting"
             className="text-sm font-medium text-zinc-300 hover:text-white transition-colors"
-            onClick={(e) => scrollToSection('consulting', e)}
+            onClick={(e) => handleNavClick('consulting', e)}
           >
             {t.nav.bookNow}
           </Link>
@@ -70,7 +69,7 @@ export default function Navigation() {
         <div className="hidden md:flex items-center gap-4">
           <button 
             className="btn-primary-dark text-sm"
-            onClick={(e) => scrollToSection('consulting', e)}
+            onClick={(e) => handleNavClick('consulting', e)}
           >
             {t.nav.bookNow}
           </button>
@@ -106,20 +105,20 @@ export default function Navigation() {
                 <Link 
                   href="#services"
                   className="text-lg font-medium text-zinc-300 hover:text-white transition-colors"
-                  onClick={(e) => scrollToSection('services', e)}
+                  onClick={(e) => handleNavClick('services', e)}
                 >
                   {t.nav.services}
                 </Link>
                 <Link 
                   href="#tech-stack"
                   className="text-lg font-medium text-zinc-300 hover:text-white transition-colors"
-                  onClick={(e) => scrollToSection('tech-stack', e)}
+                  onClick={(e) => handleNavClick('tech-stack', e)}
                 >
                   {t.nav.technology}
                 </Link>
                 <button 
                   className="btn-primary-dark w-[200px] mt-4"
-                  onClick={(e) => scrollToSection('consulting', e)}
+                  onClick={(e) => handleNavClick('consulting', e)}
                 >
                   {t.nav.bookNow}
                 </button>

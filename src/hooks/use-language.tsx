@@ -2,7 +2,7 @@ import { createContext, useContext, useState, ReactNode, useEffect } from 'react
 
 type Language = 'en' | 'de' | 'fr';
 
-interface Translations {
+export interface Translations {
   nav: {
     services: string;
     technology: string;
@@ -15,6 +15,10 @@ interface Translations {
     rotatingWords: string[];
     subtitle: string;
     getStarted: string;
+    stat1Label: string;
+    stat1Value: string;
+    stat2Label: string;
+    stat2Value: string;
   };
   consulting: {
     title: string;
@@ -49,15 +53,16 @@ interface Translations {
     items: {
       title: string;
       description: string;
+      iconKey: "blockchain" | "ai" | "web3" | "smartContract" | "defi" | "osaasc";
     }[];
   };
   techStack: {
     title: string;
-    questions: string[];
-    technologies: {
-      blockchain: string[];
-      ai: string[];
-    };
+    items: {
+      question: string;
+      technology: string;
+      group: "blockchain" | "ai";
+    }[];
   };
   contact: {
     title: string;
@@ -71,6 +76,8 @@ interface Translations {
     contact: string;
     social: string;
     copyright: string;
+    description: string;
+    navigationTitle: string;
   };
   notFound: {
     title: string;
@@ -93,6 +100,10 @@ const translations: Record<Language, Translations> = {
       rotatingWords: ['Leading', 'Business', 'Technology', 'Culture'],
       subtitle: 'Deep experience in Web3 × AI infrastructure. Avoid detours and go live fast.',
       getStarted: 'Get Started',
+      stat1Label: 'Web3 Solutions',
+      stat1Value: 'Enterprise Ready',
+      stat2Label: 'AI Integration',
+      stat2Value: '96%',
     },
     consulting: {
       title: 'Web3 & OSAASC Consulting',
@@ -144,26 +155,32 @@ const translations: Record<Language, Translations> = {
       title: 'Our Services',
       items: [
         {
+          iconKey: 'blockchain',
           title: 'Enterprise Blockchain Infrastructure Design',
           description: 'Custom blockchain architecture tailored for enterprise needs with focus on scalability and security.',
         },
         {
+          iconKey: 'ai',
           title: 'AI System Architecture Consulting',
           description: 'Comprehensive AI system design and implementation guidance for modern applications.',
         },
         {
+          iconKey: 'web3',
           title: 'Web3 Application Development',
           description: 'End-to-end Web3 application development from concept to deployment.',
         },
         {
+          iconKey: 'smartContract',
           title: 'Smart Contract Development',
           description: 'Secure and efficient smart contract development with comprehensive testing.',
         },
         {
+          iconKey: 'defi',
           title: 'DeFi Protocol Design',
           description: 'Custom DeFi protocol architecture and tokenomics design.',
         },
         {
+          iconKey: 'osaasc',
           title: 'OSAASC Integration Services',
           description: 'Seamless integration of generative AI capabilities into existing systems.',
         },
@@ -171,16 +188,14 @@ const translations: Record<Language, Translations> = {
     },
     techStack: {
       title: 'Technical Solutions',
-      questions: [
-        'Setup smart contract infrastructure?',
-        'Deploy AI-powered applications?',
-        'Build decentralized systems?',
-        'Integrate machine learning models?',
+      items: [
+        { group: 'blockchain', question: 'Setup smart contract infrastructure?', technology: 'Ethereum' },
+        { group: 'blockchain', question: 'Build decentralized storage?', technology: 'Filecoin' },
+        { group: 'blockchain', question: 'Scale blockchain operations?', technology: 'Solana' },
+        { group: 'ai', question: 'Deploy custom LLMs?', technology: 'DeepSeek' },
+        { group: 'ai', question: 'Implement open-source AI?', technology: 'LLama3' },
+        { group: 'ai', question: 'Enterprise AI integration?', technology: 'QWen3' },
       ],
-      technologies: {
-        blockchain: ['Ethereum', 'Filecoin', 'Solana'],
-        ai: ['DeepSeek', 'LLama3', 'QWen3'],
-      },
     },
     contact: {
       title: 'Get in Touch',
@@ -193,7 +208,9 @@ const translations: Record<Language, Translations> = {
       consulting: 'Consulting',
       contact: 'Contact',
       social: 'Follow Us',
-      copyright: '© 2025 LebitAI. All rights reserved.',
+      copyright: '© {year} LebitAI. All rights reserved.',
+      description: 'Empowering businesses with next-generation AI and blockchain solutions.',
+      navigationTitle: 'Navigation',
     },
     notFound: {
       title: '404 - Page Not Found',
@@ -214,6 +231,10 @@ const translations: Record<Language, Translations> = {
       rotatingWords: ['Marktführerschaft', 'Geschäft', 'Technologie', 'Kultur'],
       subtitle: 'Tiefgreifende Erfahrung in Web3 × KI-Infrastruktur. Umwege vermeiden und schnell live gehen.',
       getStarted: 'Jetzt starten',
+      stat1Label: 'Web3-Lösungen',
+      stat1Value: 'Unternehmensbereit',
+      stat2Label: 'KI-Integration',
+      stat2Value: '96%',
     },
     consulting: {
       title: 'Web3 & OSAASC Beratung',
@@ -265,26 +286,32 @@ const translations: Record<Language, Translations> = {
       title: 'Unsere Dienstleistungen',
       items: [
         {
+          iconKey: 'blockchain',
           title: 'Enterprise Blockchain-Infrastruktur Design',
           description: 'Maßgeschneiderte Blockchain-Architektur für Unternehmensanforderungen mit Fokus auf Skalierbarkeit und Sicherheit.',
         },
         {
+          iconKey: 'ai',
           title: 'KI-Systemarchitektur Beratung',
           description: 'Umfassende KI-Systemdesign- und Implementierungsberatung für moderne Anwendungen.',
         },
         {
+          iconKey: 'web3',
           title: 'Web3 Anwendungsentwicklung',
           description: 'End-to-End Web3-Anwendungsentwicklung vom Konzept bis zur Bereitstellung.',
         },
         {
+          iconKey: 'smartContract',
           title: 'Smart Contract Entwicklung',
           description: 'Sichere und effiziente Smart-Contract-Entwicklung mit umfassenden Tests.',
         },
         {
+          iconKey: 'defi',
           title: 'DeFi Protokoll Design',
           description: 'Maßgeschneiderte DeFi-Protokollarchitektur und Tokenomics-Design.',
         },
         {
+          iconKey: 'osaasc',
           title: 'OSAASC Integrationsdienste',
           description: 'Nahtlose Integration generativer KI-Fähigkeiten in bestehende Systeme.',
         },
@@ -292,16 +319,14 @@ const translations: Record<Language, Translations> = {
     },
     techStack: {
       title: 'Technische Lösungen',
-      questions: [
-        'Smart-Contract-Infrastruktur einrichten?',
-        'KI-gestützte Anwendungen bereitstellen?',
-        'Dezentrale Systeme aufbauen?',
-        'Machine-Learning-Modelle integrieren?',
+      items: [
+        { group: 'blockchain', question: 'Smart-Contract-Infrastruktur einrichten?', technology: 'Ethereum' },
+        { group: 'blockchain', question: 'Dezentrale Speicherung aufbauen?', technology: 'Filecoin' },
+        { group: 'blockchain', question: 'Blockchain‑Operationen skalieren?', technology: 'Solana' },
+        { group: 'ai', question: 'Eigene LLMs bereitstellen?', technology: 'DeepSeek' },
+        { group: 'ai', question: 'Open‑Source‑KI implementieren?', technology: 'LLama3' },
+        { group: 'ai', question: 'Enterprise‑KI integrieren?', technology: 'QWen3' },
       ],
-      technologies: {
-        blockchain: ['Ethereum', 'Filecoin', 'Solana'],
-        ai: ['DeepSeek', 'LLama3', 'QWen3'],
-      },
     },
     contact: {
       title: 'Kontaktieren Sie uns',
@@ -314,7 +339,9 @@ const translations: Record<Language, Translations> = {
       consulting: 'Beratung',
       contact: 'Kontakt',
       social: 'Folgen Sie uns',
-      copyright: '© 2025 LebitAI. Alle Rechte vorbehalten.',
+      copyright: '© {year} LebitAI. Alle Rechte vorbehalten.',
+      description: 'Wir unterstützen Unternehmen mit KI- und Blockchain-Lösungen der nächsten Generation.',
+      navigationTitle: 'Navigation',
     },
     notFound: {
       title: '404 - Seite nicht gefunden',
@@ -335,6 +362,10 @@ const translations: Record<Language, Translations> = {
       rotatingWords: ['Leader', 'Affaires', 'Technologie', 'Culture'],
       subtitle: 'Expérience approfondie en infrastructure Web3 × IA. Évitez les détours et passez en production rapidement.',
       getStarted: 'Commencer',
+      stat1Label: 'Solutions Web3',
+      stat1Value: 'Prêt pour l\'entreprise',
+      stat2Label: 'Intégration IA',
+      stat2Value: '96%',
     },
     consulting: {
       title: 'Conseil Web3 & OSAASC',
@@ -386,26 +417,32 @@ const translations: Record<Language, Translations> = {
       title: 'Nos Services',
       items: [
         {
+          iconKey: 'blockchain',
           title: 'Conception d\'Infrastructure Blockchain Entreprise',
           description: 'Architecture blockchain personnalisée adaptée aux besoins des entreprises avec un accent sur l\'évolutivité et la sécurité.',
         },
         {
+          iconKey: 'ai',
           title: 'Conseil en Architecture Système IA',
           description: 'Conception et conseils de mise en œuvre complets de systèmes IA pour les applications modernes.',
         },
         {
+          iconKey: 'web3',
           title: 'Développement d\'Applications Web3',
           description: 'Développement d\'applications Web3 de bout en bout, du concept au déploiement.',
         },
         {
+          iconKey: 'smartContract',
           title: 'Développement de Smart Contracts',
           description: 'Développement de smart contracts sécurisés et efficaces avec des tests complets.',
         },
         {
+          iconKey: 'defi',
           title: 'Conception de Protocoles DeFi',
           description: 'Architecture de protocole DeFi personnalisée et conception de tokenomics.',
         },
         {
+          iconKey: 'osaasc',
           title: 'Services d\'Intégration OSAASC',
           description: 'Intégration transparente des capacités d\'IA générative dans les systèmes existants.',
         },
@@ -413,16 +450,14 @@ const translations: Record<Language, Translations> = {
     },
     techStack: {
       title: 'Solutions Techniques',
-      questions: [
-        'Configurer l\'infrastructure smart contract ?',
-        'Déployer des applications alimentées par l\'IA ?',
-        'Construire des systèmes décentralisés ?',
-        'Intégrer des modèles de machine learning ?',
+      items: [
+        { group: 'blockchain', question: 'Configurer l\'infrastructure smart contract ?', technology: 'Ethereum' },
+        { group: 'blockchain', question: 'Construire un stockage décentralisé ?', technology: 'Filecoin' },
+        { group: 'blockchain', question: 'Faire évoluer les opérations blockchain ?', technology: 'Solana' },
+        { group: 'ai', question: 'Déployer des LLM personnalisés ?', technology: 'DeepSeek' },
+        { group: 'ai', question: 'Implémenter une IA open‑source ?', technology: 'LLama3' },
+        { group: 'ai', question: 'Intégration IA entreprise ?', technology: 'QWen3' },
       ],
-      technologies: {
-        blockchain: ['Ethereum', 'Filecoin', 'Solana'],
-        ai: ['DeepSeek', 'LLama3', 'QWen3'],
-      },
     },
     contact: {
       title: 'Contactez-nous',
@@ -435,7 +470,9 @@ const translations: Record<Language, Translations> = {
       consulting: 'Conseil',
       contact: 'Contact',
       social: 'Suivez-nous',
-      copyright: '© 2025 LebitAI. Tous droits réservés.',
+      copyright: '© {year} LebitAI. Tous droits réservés.',
+      description: 'Nous accompagnons les entreprises avec des solutions IA et blockchain de nouvelle génération.',
+      navigationTitle: 'Navigation',
     },
     notFound: {
       title: '404 - Page non trouvée',
@@ -504,7 +541,7 @@ export function useLanguage() {
 }
 
 export const supportedLanguages: { code: Language; name: string; flag: string }[] = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'en', name: 'English', flag: 'US' },
+  { code: 'de', name: 'Deutsch', flag: 'DE' },
+  { code: 'fr', name: 'Français', flag: 'FR' },
 ];
