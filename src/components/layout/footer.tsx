@@ -2,6 +2,8 @@ import { Link } from "wouter";
 import { SiX, SiLinkedin } from "react-icons/si";
 import { Mail } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
+import { scrollToSection } from "@/lib/scroll";
+import { socialLinks } from "@/config/social";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -16,29 +18,30 @@ export default function Footer() {
               LebitAI
             </Link>
             <p className="text-sm text-zinc-400 text-center md:text-left">
-              Empowering businesses with next-generation AI and blockchain
-              solutions.
+              {t.footer.description}
             </p>
           </div>
 
           {/* Navigation Column */}
           <div className="flex flex-col items-center">
-            <h3 className="text-sm font-medium text-white mb-4">Navigation</h3>
+            <h3 className="text-sm font-medium text-white mb-4">{t.footer.navigationTitle}</h3>
             <nav className="flex flex-col items-center space-y-2">
               <Link 
                 href="#services"
                 className="text-sm text-zinc-400 hover:text-white transition-colors"
+                onClick={(e) => scrollToSection("services", e, true)}
               >
                 {t.footer.services}
               </Link>
               <Link 
                 href="#consulting"
                 className="text-sm text-zinc-400 hover:text-white transition-colors"
+                onClick={(e) => scrollToSection("consulting", e, true)}
               >
                 {t.footer.consulting}
               </Link>
               <a
-                href="mailto:hi@lebit.ai"
+                href={socialLinks.email}
                 className="text-sm text-zinc-400 hover:text-white transition-colors"
               >
                 {t.footer.contact}
@@ -51,14 +54,14 @@ export default function Footer() {
             <h3 className="text-sm font-medium text-white mb-4">{t.footer.social}</h3>
             <div className="flex items-center space-x-4">
               <a
-                href="mailto:hi@lebit.ai"
+                href={socialLinks.email}
                 className="text-zinc-400 hover:text-cyan-400 transition-colors"
-                title="hi@lebit.ai"
+                title={socialLinks.emailLabel}
               >
                 <Mail className="h-5 w-5" />
               </a>
               <a
-                href="https://x.com/lebit_ai"
+                href={socialLinks.x}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors"
@@ -66,7 +69,7 @@ export default function Footer() {
                 <SiX className="h-5 w-5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/lebitai/"
+                href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors"
@@ -79,7 +82,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-zinc-800">
           <p className="text-sm text-zinc-500 text-center">
-            © {new Date().getFullYear()} LebitAI. All rights reserved.
+            {t.footer.copyright.replace("{year}", new Date().getFullYear().toString())}
           </p>
         </div>
       </div>

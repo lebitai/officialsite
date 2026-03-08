@@ -84,8 +84,8 @@ export default function Hero() {
         >
           <div className="flex items-center gap-3">
             <div>
-              <p className="text-[10px] text-zinc-400 uppercase tracking-wider">Web3 Solutions</p>
-              <p className="text-sm font-semibold text-white">Enterprise Ready</p>
+              <p className="text-[10px] text-zinc-400 uppercase tracking-wider">{t.hero.stat1Label}</p>
+              <p className="text-sm font-semibold text-white">{t.hero.stat1Value}</p>
             </div>
             <div className="w-7 h-7 rounded-full bg-cyan-500/30 flex items-center justify-center">
               <ArrowRight className="h-3.5 w-3.5 text-cyan-400" />
@@ -113,8 +113,8 @@ export default function Hero() {
         >
           <div className="flex items-center gap-3">
             <div>
-              <p className="text-[10px] text-zinc-400 uppercase tracking-wider">AI Integration</p>
-              <p className="text-xl font-semibold text-white">96%</p>
+              <p className="text-[10px] text-zinc-400 uppercase tracking-wider">{t.hero.stat2Label}</p>
+              <p className="text-xl font-semibold text-white">{t.hero.stat2Value}</p>
             </div>
             <div className="w-7 h-7 rounded-full bg-purple-500/30 flex items-center justify-center">
               <ArrowRight className="h-3.5 w-3.5 text-purple-400" />
