@@ -1,21 +1,16 @@
 import { motion } from "framer-motion";
 import { Clock, Check, Star, Building2 } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
+import { consultingPlans } from "@/config/pricing";
 
 export default function Consulting() {
   const { t } = useLanguage();
   
-  const handleBasicBooking = () => {
-    window.location.href = "https://buy.stripe.com/7sY9AUa8i45Y7g81854Ni01";
+  const handleBooking = (planKey: keyof typeof consultingPlans) => {
+    window.location.href = consultingPlans[planKey].stripeUrl;
   };
 
-  const handlePremiumBooking = () => {
-    window.location.href = "https://buy.stripe.com/9B65kEfsC0TMdEw2c94Ni02";
-  };
-
-  const handleEnterpriseBooking = () => {
-    window.location.href = "https://buy.stripe.com/7sY28s4NY31U5803gd4Ni03";
-  };
+  const formatPrice = (priceUsd: number) => priceUsd.toFixed(2);
 
   return (
     <section id="consulting" className="py-24 relative">
@@ -45,7 +40,7 @@ export default function Consulting() {
             <div className="glass-card h-full rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
               <div className="text-center mb-6">
                 <h3 className="text-xl font-medium text-white mb-2">{t.consulting.basicPlan.title}</h3>
-                <div className="text-4xl font-light text-white mb-2">$4.5</div>
+                <div className="text-4xl font-light text-white mb-2">${formatPrice(consultingPlans.basic.priceUsd)}</div>
                 <p className="text-sm text-zinc-400">{t.consulting.basicPlan.subtitle}</p>
               </div>
               
@@ -65,7 +60,7 @@ export default function Consulting() {
                 </div>
 
                 <button
-                  onClick={handleBasicBooking}
+                  onClick={() => handleBooking("basic")}
                   className="w-full btn-outline-dark py-3 mt-4"
                 >
                   {t.consulting.basicPlan.button}
@@ -91,7 +86,7 @@ export default function Consulting() {
               
               <div className="text-center mb-6 pt-4">
                 <h3 className="text-xl font-medium text-white mb-2">{t.consulting.premiumPlan.title}</h3>
-                <div className="text-4xl font-light text-white mb-2">$35.5</div>
+                <div className="text-4xl font-light text-white mb-2">${formatPrice(consultingPlans.premium.priceUsd)}</div>
                 <p className="text-sm text-zinc-400">{t.consulting.premiumPlan.subtitle}</p>
               </div>
               
@@ -111,7 +106,7 @@ export default function Consulting() {
                 </div>
 
                 <button
-                  onClick={handlePremiumBooking}
+                  onClick={() => handleBooking("premium")}
                   className="w-full btn-primary-dark py-3 mt-4"
                 >
                   {t.consulting.premiumPlan.button}
@@ -136,7 +131,7 @@ export default function Consulting() {
               
               <div className="text-center mb-6 pt-4">
                 <h3 className="text-xl font-medium text-white mb-2">{t.consulting.enterprisePlan.title}</h3>
-                <div className="text-4xl font-light text-white mb-2">$275</div>
+                <div className="text-4xl font-light text-white mb-2">${formatPrice(consultingPlans.enterprise.priceUsd)}</div>
                 <p className="text-sm text-zinc-400">{t.consulting.enterprisePlan.subtitle}</p>
               </div>
               
@@ -156,7 +151,7 @@ export default function Consulting() {
                 </div>
 
                 <button
-                  onClick={handleEnterpriseBooking}
+                  onClick={() => handleBooking("enterprise")}
                   className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white py-3 rounded-full font-medium hover:from-amber-600 hover:to-orange-600 transition-all duration-300 mt-4"
                 >
                   {t.consulting.enterprisePlan.button}
