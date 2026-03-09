@@ -81,6 +81,7 @@ export default function Navigation() {
           <LanguageSwitcher />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             className="text-white hover:text-zinc-300 transition-colors"
           >
             {isMobileMenuOpen ? (

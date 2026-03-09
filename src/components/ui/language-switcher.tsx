@@ -16,11 +16,11 @@ export function LanguageSwitcher() {
       <DropdownMenuTrigger asChild>
         <button
           aria-haspopup="menu"
-          aria-label="Switch language"
           className="flex items-center gap-1 text-sm font-medium text-zinc-300 hover:text-white transition-colors"
         >
           <span>{currentLang?.code.toUpperCase()}</span>
           <ChevronDown className="h-3 w-3" />
+          <span className="sr-only">Switch language</span>
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="bg-zinc-900/95 border-zinc-700 backdrop-blur-md">
