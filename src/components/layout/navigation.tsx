@@ -81,7 +81,7 @@ export default function Navigation() {
           <LanguageSwitcher />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-label={isMobileMenuOpen ? t.ui.closeMenuLabel : t.ui.openMenuLabel}
             className="text-[var(--text)] hover:text-[var(--accent-strong)] transition-colors"
           >
             {isMobileMenuOpen ? (

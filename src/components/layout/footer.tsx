@@ -145,7 +145,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line)] bg-white text-[var(--muted)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)] hover:text-[var(--text)]"
-                aria-label="LebitAI on X"
+                aria-label={t.ui.xAriaLabel}
               >
                 <XIcon />
               </a>
@@ -154,7 +154,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line)] bg-white text-[var(--muted)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)] hover:text-[var(--text)]"
-                aria-label="LebitAI on LinkedIn"
+                aria-label={t.ui.linkedInAriaLabel}
               >
                 <LinkedInIcon />
               </a>

@@ -3,6 +3,13 @@ import { createContext, useContext, useState, ReactNode, useEffect } from 'react
 type Language = 'en' | 'de' | 'fr';
 
 export interface Translations {
+  ui: {
+    languageSwitcherLabel: string;
+    openMenuLabel: string;
+    closeMenuLabel: string;
+    xAriaLabel: string;
+    linkedInAriaLabel: string;
+  };
   nav: {
     services: string;
     technology: string;
@@ -120,6 +127,13 @@ export interface Translations {
 
 const translations: Record<Language, Translations> = {
   en: {
+    ui: {
+      languageSwitcherLabel: 'Switch language',
+      openMenuLabel: 'Open menu',
+      closeMenuLabel: 'Close menu',
+      xAriaLabel: 'LebitAI on X',
+      linkedInAriaLabel: 'LebitAI on LinkedIn',
+    },
     nav: {
       services: 'Services',
       technology: 'Technology',
@@ -309,6 +323,13 @@ const translations: Record<Language, Translations> = {
     },
   },
   de: {
+    ui: {
+      languageSwitcherLabel: 'Sprache wechseln',
+      openMenuLabel: 'Menü öffnen',
+      closeMenuLabel: 'Menü schließen',
+      xAriaLabel: 'LebitAI auf X',
+      linkedInAriaLabel: 'LebitAI auf LinkedIn',
+    },
     nav: {
       services: 'Dienstleistungen',
       technology: 'Technologie',
@@ -498,6 +519,13 @@ const translations: Record<Language, Translations> = {
     },
   },
   fr: {
+    ui: {
+      languageSwitcherLabel: 'Changer la langue',
+      openMenuLabel: 'Ouvrir le menu',
+      closeMenuLabel: 'Fermer le menu',
+      xAriaLabel: 'LebitAI sur X',
+      linkedInAriaLabel: 'LebitAI sur LinkedIn',
+    },
     nav: {
       services: 'Services',
       technology: 'Technologie',
