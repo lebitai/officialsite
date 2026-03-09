@@ -116,7 +116,7 @@ const translations: Record<Language, Translations> = {
       services: 'Services',
       technology: 'Technology',
       bookNow: 'Plans',
-      primaryCta: 'Book Strategy Call',
+      primaryCta: 'Book Quick Start',
       contact: 'Contact',
     },
     hero: {
@@ -124,8 +124,8 @@ const translations: Record<Language, Translations> = {
       titlePrefix: 'Leave the call with a',
       titleSuffix: '',
       rotatingWords: ['launch roadmap', 'clear technical plan', 'confident next step', 'pilot execution brief'],
-      subtitle: 'Skip weeks of tool comparison and false starts. We help you define scope, choose the right stack, and leave with an execution-ready plan.',
-      primaryCta: 'Book the $19.90 Quick Start Plan',
+      subtitle: 'Get clarity on scope, architecture, and next steps before you spend engineering time in the wrong place.',
+      primaryCta: 'Book Quick Start for $19.90',
       secondaryCta: 'Email Your Use Case',
       fitTitle: 'Best fit for',
       fitItems: [
@@ -297,7 +297,7 @@ const translations: Record<Language, Translations> = {
       services: 'Dienstleistungen',
       technology: 'Technologie',
       bookNow: 'Pläne',
-      primaryCta: 'Strategiegespräch buchen',
+      primaryCta: 'Schnellstart buchen',
       contact: 'Kontakt',
     },
     hero: {
@@ -305,8 +305,8 @@ const translations: Record<Language, Translations> = {
       titlePrefix: 'Verlassen Sie das Gespräch mit einem',
       titleSuffix: '',
       rotatingWords: ['klaren Launch-Fahrplan', 'klaren technischen Plan', 'sicheren nächsten Schritt', 'Pilot-Umsetzungsbrief'],
-      subtitle: 'Vermeiden Sie wochenlange Tool-Vergleiche und Fehlstarts. Wir schärfen den Scope, wählen den passenden Stack und liefern einen umsetzbaren Plan.',
-      primaryCta: 'Den Schnellstart für $19.90 buchen',
+      subtitle: 'Gewinnen Sie Klarheit zu Scope, Architektur und nächsten Schritten, bevor Engineering-Zeit in die falsche Richtung geht.',
+      primaryCta: 'Schnellstart für $19.90 buchen',
       secondaryCta: 'Use Case per E-Mail senden',
       fitTitle: 'Besonders passend für',
       fitItems: [
@@ -478,7 +478,7 @@ const translations: Record<Language, Translations> = {
       services: 'Services',
       technology: 'Technologie',
       bookNow: 'Plans',
-      primaryCta: 'Réserver un appel stratégique',
+      primaryCta: 'Réserver Quick Start',
       contact: 'Contact',
     },
     hero: {
@@ -486,8 +486,8 @@ const translations: Record<Language, Translations> = {
       titlePrefix: 'Repartez avec une',
       titleSuffix: '',
       rotatingWords: ['feuille de route de lancement', 'feuille technique claire', 'prochaine étape sûre', 'brief d’exécution pilote'],
-      subtitle: 'Évitez des semaines de comparaison d’outils et de faux départs. Nous cadrons le scope, choisissons le bon stack et vous repartez avec un plan exécutable.',
-      primaryCta: 'Réserver le Quick Start à $19.90',
+      subtitle: 'Clarifiez le scope, l’architecture et les prochaines étapes avant de mobiliser du temps d’ingénierie au mauvais endroit.',
+      primaryCta: 'Réserver Quick Start à $19.90',
       secondaryCta: 'Envoyer votre cas par email',
       fitTitle: 'Idéal pour',
       fitItems: [

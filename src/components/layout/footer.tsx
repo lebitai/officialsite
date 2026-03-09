@@ -1,9 +1,24 @@
 import { Link } from "wouter";
-import { SiX, SiLinkedin } from "react-icons/si";
 import { Mail } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
 import { scrollToSection } from "@/lib/scroll";
 import { socialLinks } from "@/config/social";
+
+function XIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
+      <path d="M18.244 2H21.5l-7.11 8.127L22.75 22h-6.548l-5.13-7.103L4.86 22H1.602l7.605-8.694L1.25 2h6.714l4.636 6.425L18.244 2Zm-1.148 18.03h1.803L6.98 3.865H5.046L17.096 20.03Z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
+      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3C4.16 3 3.4 3.77 3.4 4.78c0 .98.74 1.78 1.8 1.78h.02c1.1 0 1.84-.8 1.84-1.78C7.04 3.77 6.33 3 5.25 3ZM20.6 12.86c0-3.36-1.79-4.92-4.18-4.92-1.93 0-2.79 1.06-3.27 1.8V8.5H9.77c.04.82 0 11.5 0 11.5h3.38v-6.42c0-.34.03-.67.12-.91.27-.67.88-1.36 1.9-1.36 1.34 0 1.88 1.02 1.88 2.52V20H20.6v-7.14Z" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -68,7 +83,7 @@ export default function Footer() {
                 className="text-zinc-400 hover:text-white transition-colors"
                 aria-label="LebitAI on X"
               >
-                <SiX className="h-5 w-5" />
+                <XIcon />
               </a>
               <a
                 href={socialLinks.linkedin}
@@ -77,7 +92,7 @@ export default function Footer() {
                 className="text-zinc-400 hover:text-white transition-colors"
                 aria-label="LebitAI on LinkedIn"
               >
-                <SiLinkedin className="h-5 w-5" />
+                <LinkedInIcon />
               </a>
             </div>
           </div>
