@@ -58,6 +58,20 @@ export interface Translations {
     };
     note: string;
   };
+  deliverables: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    cards: {
+      title: string;
+      description: string;
+    }[];
+    processTitle: string;
+    processItems: string[];
+    primaryCta: string;
+    secondaryCta: string;
+    note: string;
+  };
   services: {
     title: string;
     items: {
@@ -181,7 +195,35 @@ const translations: Record<Language, Translations> = {
         button: 'Book Enterprise Plan',
         badge: 'Enterprise',
       },
-      note: 'Note: All consultations only provide detailed planning and guidance, not including subsequent implementation services',
+      note: 'Consulting plans focus on strategy, architecture, and execution guidance. Implementation can be scoped separately if needed.',
+    },
+    deliverables: {
+      eyebrow: 'Outcome-Focused Consulting',
+      title: 'What You Leave With',
+      subtitle: 'Every consulting session is designed to reduce uncertainty fast. The goal is not inspiration. The goal is a clearer decision and a sharper next move.',
+      cards: [
+        {
+          title: 'Decision Memo',
+          description: 'A clear recommendation on scope, architecture direction, and the tradeoffs you should accept or avoid.',
+        },
+        {
+          title: 'Execution Roadmap',
+          description: 'A prioritized sequence of next actions so your team knows what to do this week, next, and later.',
+        },
+        {
+          title: 'Risk Checklist',
+          description: 'Key technical, delivery, and vendor risks to watch before you commit budget or engineering time.',
+        },
+      ],
+      processTitle: 'How the session works',
+      processItems: [
+        'You share the context, blockers, and current options',
+        'We pressure-test the architecture and delivery path live',
+        'You leave with a tighter plan and a clearer buy/build sequence',
+      ],
+      primaryCta: 'Choose a Plan',
+      secondaryCta: 'Email Before You Buy',
+      note: 'Useful before hiring, before changing stack, and before spending on the wrong implementation path.',
     },
     services: {
       title: 'Our Services',
@@ -334,7 +376,35 @@ const translations: Record<Language, Translations> = {
         button: 'Enterprise-Plan buchen',
         badge: 'Enterprise',
       },
-      note: 'Hinweis: Alle Beratungen bieten nur detaillierte Planung und Anleitung, keine nachfolgenden Implementierungsdienste',
+      note: 'Die Beratungspläne fokussieren sich auf Strategie, Architektur und Umsetzungsanleitung. Die Implementierung kann bei Bedarf separat eingegrenzt werden.',
+    },
+    deliverables: {
+      eyebrow: 'Ergebnisorientierte Beratung',
+      title: 'Was Sie konkret mitnehmen',
+      subtitle: 'Jede Session ist darauf ausgelegt, Unsicherheit schnell zu reduzieren. Nicht Inspiration ist das Ziel, sondern eine klarere Entscheidung und ein schärferer nächster Schritt.',
+      cards: [
+        {
+          title: 'Entscheidungsmemo',
+          description: 'Eine klare Empfehlung zu Scope, Architektur-Richtung und den Trade-offs, die Sie akzeptieren oder vermeiden sollten.',
+        },
+        {
+          title: 'Umsetzungsfahrplan',
+          description: 'Eine priorisierte Reihenfolge der nächsten Schritte, damit Ihr Team weiß, was diese Woche, als Nächstes und später zu tun ist.',
+        },
+        {
+          title: 'Risiko-Checkliste',
+          description: 'Die wichtigsten technischen, operativen und Vendor-Risiken, bevor Sie Budget oder Engineering-Zeit fest binden.',
+        },
+      ],
+      processTitle: 'So läuft die Session ab',
+      processItems: [
+        'Sie teilen Kontext, Blocker und aktuelle Optionen',
+        'Wir prüfen Architektur und Delivery-Pfad live unter Realbedingungen',
+        'Sie gehen mit einem klareren Plan und einer besseren Buy-vs-Build-Reihenfolge heraus',
+      ],
+      primaryCta: 'Plan auswählen',
+      secondaryCta: 'Vor dem Kauf mailen',
+      note: 'Besonders sinnvoll vor Hiring, vor einem Stack-Wechsel und bevor Budget in den falschen Umsetzungsweg fließt.',
     },
     services: {
       title: 'Unsere Dienstleistungen',
@@ -487,7 +557,35 @@ const translations: Record<Language, Translations> = {
         button: 'Réserver Enterprise',
         badge: 'Enterprise',
       },
-      note: 'Note : Toutes les consultations fournissent uniquement une planification et des conseils détaillés, sans services de mise en œuvre ultérieurs',
+      note: 'Les plans de conseil portent sur la stratégie, l’architecture et l’orientation d’exécution. La mise en œuvre peut être cadrée séparément si nécessaire.',
+    },
+    deliverables: {
+      eyebrow: 'Conseil orienté résultat',
+      title: 'Ce que vous obtenez concrètement',
+      subtitle: 'Chaque session vise à réduire l’incertitude rapidement. Le but n’est pas l’inspiration, mais une décision plus claire et une prochaine étape plus nette.',
+      cards: [
+        {
+          title: 'Note de décision',
+          description: 'Une recommandation claire sur le scope, la direction d’architecture et les compromis à accepter ou à éviter.',
+        },
+        {
+          title: 'Feuille d’exécution',
+          description: 'Une séquence priorisée des prochaines actions pour savoir quoi faire cette semaine, ensuite, puis plus tard.',
+        },
+        {
+          title: 'Checklist des risques',
+          description: 'Les principaux risques techniques, delivery et fournisseurs à surveiller avant d’engager du budget ou du temps d’ingénierie.',
+        },
+      ],
+      processTitle: 'Comment la session se déroule',
+      processItems: [
+        'Vous partagez le contexte, les blocages et les options actuelles',
+        'Nous mettons sous pression l’architecture et la trajectoire delivery en direct',
+        'Vous repartez avec un plan plus serré et une séquence buy/build plus claire',
+      ],
+      primaryCta: 'Choisir un plan',
+      secondaryCta: 'Écrire avant d’acheter',
+      note: 'Particulièrement utile avant de recruter, avant de changer de stack et avant de dépenser sur une mauvaise trajectoire d’implémentation.',
     },
     services: {
       title: 'Nos Services',
