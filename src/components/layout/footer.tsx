@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import { ArrowRight, Mail } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
 import { scrollToSection } from "@/lib/scroll";
@@ -95,41 +94,10 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-10 grid gap-8 border-t border-[var(--line)] pt-8 md:grid-cols-[1fr_auto] md:items-end">
-            <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--muted)]">
-                {t.footer.navigationTitle}
-              </p>
-              <nav className="flex flex-wrap gap-3">
-                <Link
-                  href="#services"
-                  className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm text-[var(--text)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)]"
-                  onClick={(e) => scrollToSection("services", e, true)}
-                >
-                  {t.footer.services}
-                </Link>
-                <Link
-                  href="#consulting"
-                  className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm text-[var(--text)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)]"
-                  onClick={(e) => scrollToSection("consulting", e, true)}
-                >
-                  {t.footer.consulting}
-                </Link>
-                <Link
-                  href="#tech-stack"
-                  className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm text-[var(--text)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)]"
-                  onClick={(e) => scrollToSection("tech-stack", e, true)}
-                >
-                  {t.nav.technology}
-                </Link>
-                <a
-                  href={socialLinks.email}
-                  className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm text-[var(--text)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)]"
-                >
-                  {t.footer.contact}
-                </a>
-              </nav>
-            </div>
+          <div className="mt-10 flex flex-col gap-5 border-t border-[var(--line)] pt-8 md:flex-row md:items-center md:justify-between">
+            <p className="max-w-2xl text-sm leading-6 text-[var(--muted)]">
+              {t.footer.subheadline}
+            </p>
 
             <div className="flex items-center gap-3 md:justify-end">
               <a
