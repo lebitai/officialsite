@@ -1,8 +1,9 @@
 import { Link } from "wouter";
-import { Mail } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
 import { scrollToSection } from "@/lib/scroll";
 import { socialLinks } from "@/config/social";
+import { Logo } from "@/components/ui/logo";
 
 function XIcon() {
   return (
@@ -24,53 +25,116 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t border-zinc-800">
-      <div className="container max-w-6xl mx-auto py-16 px-8 md:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Logo and Description Column */}
-          <div className="flex flex-col items-center md:items-start">
-            <Link href="/" className="text-xl font-semibold text-white tracking-tight mb-4">
-              LebitAI
-            </Link>
-            <p className="text-sm text-zinc-400 text-center md:text-left">
-              {t.footer.description}
-            </p>
-          </div>
+    <footer className="relative px-8 pb-10 pt-24 md:px-16">
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="container mx-auto max-w-7xl">
+        <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-gradient-to-br from-zinc-950/92 via-zinc-900/78 to-cyan-950/32 p-8 shadow-[0_28px_90px_rgba(0,0,0,0.28)] md:p-10">
+          <div className="absolute -right-12 top-0 h-48 w-48 rounded-full bg-cyan-400/10 blur-3xl" />
+          <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-fuchsia-500/10 blur-3xl" />
 
-          {/* Navigation Column */}
-          <div className="flex flex-col items-center">
-            <h3 className="text-sm font-medium text-white mb-4">{t.footer.navigationTitle}</h3>
-            <nav className="flex flex-col items-center space-y-2">
-              <Link 
-                href="#services"
-                className="text-sm text-zinc-400 hover:text-white transition-colors"
-                onClick={(e) => scrollToSection("services", e, true)}
-              >
-                {t.footer.services}
-              </Link>
-              <Link 
-                href="#consulting"
-                className="text-sm text-zinc-400 hover:text-white transition-colors"
-                onClick={(e) => scrollToSection("consulting", e, true)}
-              >
-                {t.footer.consulting}
-              </Link>
-              <a
-                href={socialLinks.email}
-                className="text-sm text-zinc-400 hover:text-white transition-colors"
-              >
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_360px] lg:items-start">
+            <div>
+              <div className="inline-flex rounded-full border border-white/10 bg-white/[0.03] px-3 py-2">
+                <Logo className="gap-3" />
+              </div>
+
+              <div className="mt-8 max-w-2xl">
+                <h2 className="text-3xl font-light tracking-tight text-white md:text-[2.5rem] md:leading-[1.08]">
+                  {t.footer.headline}
+                </h2>
+                <p className="mt-4 text-base leading-7 text-zinc-300 md:text-lg">
+                  {t.footer.subheadline}
+                </p>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                {t.footer.highlightItems.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-sm text-zinc-200"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[28px] border border-white/10 bg-white/[0.05] p-6 shadow-[0_16px_50px_rgba(0,0,0,0.18)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200">
                 {t.footer.contact}
-              </a>
-            </nav>
+              </p>
+              <h3 className="mt-3 text-2xl font-medium text-white">{t.footer.ctaTitle}</h3>
+              <p className="mt-3 text-sm leading-7 text-zinc-300">{t.footer.ctaSubtitle}</p>
+
+              <div className="mt-6 flex flex-col gap-3">
+                <button
+                  className="btn-primary-dark inline-flex items-center justify-center gap-2 py-4 text-sm"
+                  onClick={(e) => scrollToSection("consulting", e, true)}
+                >
+                  {t.footer.primaryCta}
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+                <a
+                  href={socialLinks.email}
+                  className="btn-outline-dark inline-flex items-center justify-center gap-2 py-4 text-sm"
+                >
+                  <Mail className="h-4 w-4" />
+                  {t.footer.secondaryCta}
+                </a>
+              </div>
+
+              <div className="mt-6 rounded-2xl border border-white/8 bg-zinc-950/35 px-4 py-4">
+                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">{t.footer.emailLabel}</p>
+                <a
+                  href={socialLinks.email}
+                  className="mt-2 block text-base font-medium text-white hover:text-cyan-200 transition-colors"
+                >
+                  {socialLinks.emailLabel}
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Connect Column */}
-          <div className="flex flex-col items-center">
-            <h3 className="text-sm font-medium text-white mb-4">{t.footer.social}</h3>
-            <div className="flex items-center space-x-4">
+          <div className="mt-10 grid gap-8 border-t border-white/10 pt-8 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">
+                {t.footer.navigationTitle}
+              </p>
+              <nav className="flex flex-wrap gap-3">
+                <Link
+                  href="#services"
+                  className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+                  onClick={(e) => scrollToSection("services", e, true)}
+                >
+                  {t.footer.services}
+                </Link>
+                <Link
+                  href="#consulting"
+                  className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+                  onClick={(e) => scrollToSection("consulting", e, true)}
+                >
+                  {t.footer.consulting}
+                </Link>
+                <Link
+                  href="#tech-stack"
+                  className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+                  onClick={(e) => scrollToSection("tech-stack", e, true)}
+                >
+                  {t.nav.technology}
+                </Link>
+                <a
+                  href={socialLinks.email}
+                  className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+                >
+                  {t.footer.contact}
+                </a>
+              </nav>
+            </div>
+
+            <div className="flex items-center gap-3 md:justify-end">
               <a
                 href={socialLinks.email}
-                className="text-zinc-400 hover:text-cyan-400 transition-colors"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-zinc-300 transition-colors hover:border-cyan-400/30 hover:bg-cyan-400/10 hover:text-cyan-200"
                 title={socialLinks.emailLabel}
                 aria-label={socialLinks.emailLabel}
               >
@@ -80,7 +144,7 @@ export default function Footer() {
                 href={socialLinks.x}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-400 hover:text-white transition-colors"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-zinc-300 transition-colors hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
                 aria-label="LebitAI on X"
               >
                 <XIcon />
@@ -89,19 +153,19 @@ export default function Footer() {
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-400 hover:text-white transition-colors"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-zinc-300 transition-colors hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
                 aria-label="LebitAI on LinkedIn"
               >
                 <LinkedInIcon />
               </a>
             </div>
           </div>
-        </div>
 
-        <div className="mt-12 pt-8 border-t border-zinc-800">
-          <p className="text-sm text-zinc-500 text-center">
-            {t.footer.copyright.replace("{year}", new Date().getFullYear().toString())}
-          </p>
+          <div className="mt-8 border-t border-white/10 pt-6">
+            <p className="text-center text-sm text-zinc-500 md:text-left">
+              {t.footer.copyright.replace("{year}", new Date().getFullYear().toString())}
+            </p>
+          </div>
         </div>
       </div>
     </footer>
