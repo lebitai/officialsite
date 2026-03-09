@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <main className="flex-1">
       <Hero />
-      <Services />
       <Consulting />
+      <Services />
       <TechStack />
     </main>
   );
