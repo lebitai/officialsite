@@ -8,7 +8,7 @@ export function Logo({ className = "" }) {
         alt="LebitAI" 
         className="h-6 w-6 md:h-7 md:w-7"
       />
-      <span className="text-xl font-semibold text-white tracking-tight">LebitAI</span>
+      <span className="text-xl font-semibold tracking-tight text-[var(--text)]">LebitAI</span>
     </Link>
   );
 }

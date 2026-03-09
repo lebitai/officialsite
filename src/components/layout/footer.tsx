@@ -26,11 +26,11 @@ export default function Footer() {
 
   return (
     <footer className="relative px-8 pb-10 pt-24 md:px-16">
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--line)] to-transparent" />
       <div className="container mx-auto max-w-7xl">
-        <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-gradient-to-br from-zinc-950/92 via-zinc-900/78 to-cyan-950/32 p-8 shadow-[0_28px_90px_rgba(0,0,0,0.28)] md:p-10">
-          <div className="absolute -right-12 top-0 h-48 w-48 rounded-full bg-cyan-400/10 blur-3xl" />
-          <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-fuchsia-500/10 blur-3xl" />
+        <div className="relative overflow-hidden rounded-[36px] border border-[var(--line)] bg-gradient-to-br from-white via-[var(--bg-soft)] to-[var(--sand-soft)] p-8 shadow-[0_28px_90px_rgba(50,61,56,0.12)] md:p-10">
+          <div className="absolute -right-12 top-0 h-48 w-48 rounded-full bg-[rgba(143,167,149,0.14)] blur-3xl" />
+          <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-[rgba(215,192,166,0.18)] blur-3xl" />
 
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_360px] lg:items-start">
             <div>
@@ -39,10 +39,10 @@ export default function Footer() {
               </div>
 
               <div className="mt-8 max-w-2xl">
-                <h2 className="text-3xl font-light tracking-tight text-white md:text-[2.5rem] md:leading-[1.08]">
+                <h2 className="text-3xl font-light tracking-tight text-[var(--text)] md:text-[2.5rem] md:leading-[1.08]">
                   {t.footer.headline}
                 </h2>
-                <p className="mt-4 text-base leading-7 text-zinc-300 md:text-lg">
+                <p className="mt-4 text-base leading-7 text-[var(--muted)] md:text-lg">
                   {t.footer.subheadline}
                 </p>
               </div>
@@ -51,7 +51,7 @@ export default function Footer() {
                 {t.footer.highlightItems.map((item) => (
                   <div
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-sm text-zinc-200"
+                    className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm text-[var(--text)] shadow-[0_10px_24px_rgba(50,61,56,0.05)]"
                   >
                     {item}
                   </div>
@@ -59,12 +59,12 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="rounded-[28px] border border-white/10 bg-white/[0.05] p-6 shadow-[0_16px_50px_rgba(0,0,0,0.18)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200">
+            <div className="rounded-[28px] border border-[var(--line)] bg-white/88 p-6 shadow-[0_16px_50px_rgba(50,61,56,0.08)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--accent-strong)]">
                 {t.footer.contact}
               </p>
-              <h3 className="mt-3 text-2xl font-medium text-white">{t.footer.ctaTitle}</h3>
-              <p className="mt-3 text-sm leading-7 text-zinc-300">{t.footer.ctaSubtitle}</p>
+              <h3 className="mt-3 text-2xl font-medium text-[var(--text)]">{t.footer.ctaTitle}</h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{t.footer.ctaSubtitle}</p>
 
               <div className="mt-6 flex flex-col gap-3">
                 <button
@@ -83,11 +83,11 @@ export default function Footer() {
                 </a>
               </div>
 
-              <div className="mt-6 rounded-2xl border border-white/8 bg-zinc-950/35 px-4 py-4">
-                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">{t.footer.emailLabel}</p>
+              <div className="mt-6 rounded-2xl border border-[var(--line)] bg-[var(--surface-strong)] px-4 py-4">
+                <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--muted)]">{t.footer.emailLabel}</p>
                 <a
                   href={socialLinks.email}
-                  className="mt-2 block text-base font-medium text-white hover:text-cyan-200 transition-colors"
+                  className="mt-2 block text-base font-medium text-[var(--text)] hover:text-[var(--accent-strong)] transition-colors"
                 >
                   {socialLinks.emailLabel}
                 </a>
@@ -95,36 +95,36 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-10 grid gap-8 border-t border-white/10 pt-8 md:grid-cols-[1fr_auto] md:items-end">
+          <div className="mt-10 grid gap-8 border-t border-[var(--line)] pt-8 md:grid-cols-[1fr_auto] md:items-end">
             <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--muted)]">
                 {t.footer.navigationTitle}
               </p>
               <nav className="flex flex-wrap gap-3">
                 <Link
                   href="#services"
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+                  className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm text-[var(--text)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)]"
                   onClick={(e) => scrollToSection("services", e, true)}
                 >
                   {t.footer.services}
                 </Link>
                 <Link
                   href="#consulting"
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+                  className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm text-[var(--text)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)]"
                   onClick={(e) => scrollToSection("consulting", e, true)}
                 >
                   {t.footer.consulting}
                 </Link>
                 <Link
                   href="#tech-stack"
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+                  className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm text-[var(--text)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)]"
                   onClick={(e) => scrollToSection("tech-stack", e, true)}
                 >
                   {t.nav.technology}
                 </Link>
                 <a
                   href={socialLinks.email}
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+                  className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm text-[var(--text)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)]"
                 >
                   {t.footer.contact}
                 </a>
@@ -134,7 +134,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 md:justify-end">
               <a
                 href={socialLinks.email}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-zinc-300 transition-colors hover:border-cyan-400/30 hover:bg-cyan-400/10 hover:text-cyan-200"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line)] bg-white text-[var(--muted)] transition-colors hover:border-[var(--accent)] hover:bg-[rgba(143,167,149,0.1)] hover:text-[var(--accent-strong)]"
                 title={socialLinks.emailLabel}
                 aria-label={socialLinks.emailLabel}
               >
@@ -144,7 +144,7 @@ export default function Footer() {
                 href={socialLinks.x}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-zinc-300 transition-colors hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line)] bg-white text-[var(--muted)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)] hover:text-[var(--text)]"
                 aria-label="LebitAI on X"
               >
                 <XIcon />
@@ -153,7 +153,7 @@ export default function Footer() {
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-zinc-300 transition-colors hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line)] bg-white text-[var(--muted)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)] hover:text-[var(--text)]"
                 aria-label="LebitAI on LinkedIn"
               >
                 <LinkedInIcon />
@@ -161,8 +161,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-8 border-t border-white/10 pt-6">
-            <p className="text-center text-sm text-zinc-500 md:text-left">
+          <div className="mt-8 border-t border-[var(--line)] pt-6">
+            <p className="text-center text-sm text-[var(--muted)] md:text-left">
               {t.footer.copyright.replace("{year}", new Date().getFullYear().toString())}
             </p>
           </div>
