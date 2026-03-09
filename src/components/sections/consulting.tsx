@@ -22,9 +22,9 @@ export default function Consulting() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-light text-white mb-4">{t.consulting.title}</h2>
-          <div className="w-20 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mb-6" />
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-light text-[var(--text)] mb-4">{t.consulting.title}</h2>
+          <div className="w-20 h-0.5 bg-gradient-to-r from-[var(--accent-strong)] to-[var(--sand)] mx-auto mb-6" />
+          <p className="text-[var(--muted)] text-lg max-w-2xl mx-auto">
             {t.consulting.subtitle}
           </p>
         </motion.div>
@@ -39,10 +39,10 @@ export default function Consulting() {
           {t.consulting.assuranceItems.map((item) => (
             <div
               key={item}
-              className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-zinc-200 shadow-[0_10px_30px_rgba(0,0,0,0.15)]"
+              className="rounded-2xl border border-[var(--line)] bg-white px-5 py-4 text-sm text-[var(--text)] shadow-[0_14px_30px_rgba(50,61,56,0.06)]"
             >
               <div className="flex items-start gap-3">
-                <div className="mt-0.5 rounded-full bg-cyan-400/15 p-1.5 text-cyan-300">
+                <div className="mt-0.5 rounded-full bg-[rgba(143,167,149,0.12)] p-1.5 text-[var(--accent-strong)]">
                   <Check className="h-4 w-4" />
                 </div>
                 <span>{item}</span>
@@ -59,28 +59,28 @@ export default function Consulting() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div className="glass-card h-full rounded-[28px] p-8 hover:bg-white/10 transition-all duration-300">
+            <div className="glass-card h-full rounded-[28px] p-8 transition-all duration-300 hover:-translate-y-1">
               <div className="text-center mb-6">
-                <h3 className="text-xl font-medium text-white mb-2">{t.consulting.basicPlan.title}</h3>
-                <div className="text-4xl font-light text-white mb-2">${formatPrice(consultingPlans.basic.priceUsd)}</div>
-                <p className="text-sm text-zinc-400">{t.consulting.basicPlan.subtitle}</p>
+                <h3 className="text-xl font-medium text-[var(--text)] mb-2">{t.consulting.basicPlan.title}</h3>
+                <div className="text-4xl font-light text-[var(--text)] mb-2">${formatPrice(consultingPlans.basic.priceUsd)}</div>
+                <p className="text-sm text-[var(--muted)]">{t.consulting.basicPlan.subtitle}</p>
               </div>
 
-              <div className="mb-6 rounded-2xl border border-cyan-400/15 bg-cyan-400/8 px-4 py-3 text-sm text-cyan-100">
+              <div className="mb-6 rounded-2xl border border-[rgba(143,167,149,0.18)] bg-[rgba(143,167,149,0.1)] px-4 py-3 text-sm text-[var(--accent-strong)]">
                 {t.consulting.basicPlan.bestFor}
               </div>
               
               <div className="space-y-6">
-                <div className="flex items-center gap-3 text-zinc-300">
-                  <Clock className="h-5 w-5 text-cyan-400 flex-shrink-0" />
+                <div className="flex items-center gap-3 text-[var(--muted)]">
+                  <Clock className="h-5 w-5 text-[var(--accent-strong)] flex-shrink-0" />
                   <span className="text-sm">{t.consulting.basicPlan.duration}</span>
                 </div>
 
                 <div className="space-y-3">
                   {t.consulting.basicPlan.features.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-zinc-300">{feature}</span>
+                      <Check className="h-5 w-5 text-[var(--accent-strong)] flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-[var(--text)]">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -103,35 +103,35 @@ export default function Consulting() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="glass-card relative h-full rounded-[28px] border-cyan-500/50 bg-gradient-to-b from-cyan-500/8 to-transparent p-8 shadow-[0_20px_60px_rgba(8,145,178,0.12)] transition-all duration-300 hover:bg-white/10">
+            <div className="glass-card relative h-full rounded-[28px] border-[rgba(143,167,149,0.3)] bg-gradient-to-b from-[rgba(143,167,149,0.14)] to-white p-8 shadow-[0_22px_60px_rgba(50,61,56,0.1)] transition-all duration-300 hover:-translate-y-1">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <div className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-4 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                <div className="bg-gradient-to-r from-[var(--accent-strong)] to-[#9d8e78] text-white px-4 py-1 rounded-full text-xs font-medium flex items-center gap-1">
                   <Star className="h-3 w-3" />
                   {t.consulting.premiumPlan.badge}
                 </div>
               </div>
               
               <div className="text-center mb-6 pt-4">
-                <h3 className="text-xl font-medium text-white mb-2">{t.consulting.premiumPlan.title}</h3>
-                <div className="text-4xl font-light text-white mb-2">${formatPrice(consultingPlans.premium.priceUsd)}</div>
-                <p className="text-sm text-zinc-400">{t.consulting.premiumPlan.subtitle}</p>
+                <h3 className="text-xl font-medium text-[var(--text)] mb-2">{t.consulting.premiumPlan.title}</h3>
+                <div className="text-4xl font-light text-[var(--text)] mb-2">${formatPrice(consultingPlans.premium.priceUsd)}</div>
+                <p className="text-sm text-[var(--muted)]">{t.consulting.premiumPlan.subtitle}</p>
               </div>
 
-              <div className="mb-6 rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-4 py-3 text-sm text-cyan-50">
+              <div className="mb-6 rounded-2xl border border-[rgba(143,167,149,0.22)] bg-[rgba(143,167,149,0.12)] px-4 py-3 text-sm text-[var(--accent-strong)]">
                 {t.consulting.premiumPlan.bestFor}
               </div>
               
               <div className="space-y-6">
-                <div className="flex items-center gap-3 text-zinc-300">
-                  <Clock className="h-5 w-5 text-purple-400 flex-shrink-0" />
+                <div className="flex items-center gap-3 text-[var(--muted)]">
+                  <Clock className="h-5 w-5 text-[var(--accent-strong)] flex-shrink-0" />
                   <span className="text-sm">{t.consulting.premiumPlan.duration}</span>
                 </div>
 
                 <div className="space-y-3">
                   {t.consulting.premiumPlan.features.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-zinc-300">{feature}</span>
+                      <Check className="h-5 w-5 text-[var(--accent-strong)] flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-[var(--text)]">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -153,42 +153,42 @@ export default function Consulting() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="glass-card relative h-full rounded-[28px] border-amber-500/50 p-8 transition-all duration-300 hover:bg-white/10">
+            <div className="glass-card relative h-full rounded-[28px] border-[rgba(215,192,166,0.46)] bg-gradient-to-b from-[rgba(245,235,223,0.72)] to-white p-8 transition-all duration-300 hover:-translate-y-1">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                <div className="bg-gradient-to-r from-[#ba8d5a] to-[#d1ac79] text-white px-4 py-1 rounded-full text-xs font-medium flex items-center gap-1">
                   <Building2 className="h-3 w-3" />
                   {t.consulting.enterprisePlan.badge}
                 </div>
               </div>
               
               <div className="text-center mb-6 pt-4">
-                <h3 className="text-xl font-medium text-white mb-2">{t.consulting.enterprisePlan.title}</h3>
-                <div className="text-4xl font-light text-white mb-2">${formatPrice(consultingPlans.enterprise.priceUsd)}</div>
-                <p className="text-sm text-zinc-400">{t.consulting.enterprisePlan.subtitle}</p>
+                <h3 className="text-xl font-medium text-[var(--text)] mb-2">{t.consulting.enterprisePlan.title}</h3>
+                <div className="text-4xl font-light text-[var(--text)] mb-2">${formatPrice(consultingPlans.enterprise.priceUsd)}</div>
+                <p className="text-sm text-[var(--muted)]">{t.consulting.enterprisePlan.subtitle}</p>
               </div>
 
-              <div className="mb-6 rounded-2xl border border-amber-400/15 bg-amber-400/8 px-4 py-3 text-sm text-amber-50">
+              <div className="mb-6 rounded-2xl border border-[rgba(215,192,166,0.36)] bg-[rgba(245,235,223,0.88)] px-4 py-3 text-sm text-[#916740]">
                 {t.consulting.enterprisePlan.bestFor}
               </div>
               
               <div className="space-y-6">
-                <div className="flex items-center gap-3 text-zinc-300">
-                  <Clock className="h-5 w-5 text-amber-400 flex-shrink-0" />
+                <div className="flex items-center gap-3 text-[var(--muted)]">
+                  <Clock className="h-5 w-5 text-[#ba8d5a] flex-shrink-0" />
                   <span className="text-sm">{t.consulting.enterprisePlan.duration}</span>
                 </div>
 
                 <div className="space-y-3">
                   {t.consulting.enterprisePlan.features.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-zinc-300">{feature}</span>
+                      <Check className="h-5 w-5 text-[#ba8d5a] flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-[var(--text)]">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 <button
                   onClick={() => handleBooking("enterprise")}
-                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 py-3 font-medium text-white transition-all duration-300 hover:from-amber-600 hover:to-orange-600"
+                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#ba8d5a] to-[#d1ac79] py-3 font-medium text-white transition-all duration-300 hover:from-[#a97c49] hover:to-[#c89d66]"
                 >
                   {t.consulting.enterprisePlan.button}
                   <ArrowRight className="h-4 w-4" />
@@ -198,7 +198,7 @@ export default function Consulting() {
           </motion.div>
         </div>
 
-        <div className="text-center mt-10 text-sm text-zinc-500">
+        <div className="text-center mt-10 text-sm text-[var(--muted)]">
           <p>{t.consulting.note}</p>
         </div>
       </div>

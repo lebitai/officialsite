@@ -102,6 +102,14 @@ export interface Translations {
     copyright: string;
     description: string;
     navigationTitle: string;
+    headline: string;
+    subheadline: string;
+    highlightItems: string[];
+    ctaTitle: string;
+    ctaSubtitle: string;
+    primaryCta: string;
+    secondaryCta: string;
+    emailLabel: string;
   };
   notFound: {
     title: string;
@@ -285,6 +293,14 @@ const translations: Record<Language, Translations> = {
       copyright: '© {year} LebitAI. All rights reserved.',
       description: 'Empowering businesses with next-generation AI and blockchain solutions.',
       navigationTitle: 'Navigation',
+      headline: 'Clarity before you build is cheaper than rework after launch.',
+      subheadline: 'Use the footer as the final decision point: choose a plan, email your use case, or jump back into the service areas that matter.',
+      highlightItems: ['Web3 architecture', 'AI infrastructure', 'Execution roadmaps'],
+      ctaTitle: 'Ready to scope the right next move?',
+      ctaSubtitle: 'Choose the consulting path that fits your current stage and leave with a sharper execution plan.',
+      primaryCta: 'Book Quick Start',
+      secondaryCta: 'Email Your Use Case',
+      emailLabel: 'hi@lebit.ai',
     },
     notFound: {
       title: '404 - Page Not Found',
@@ -466,6 +482,14 @@ const translations: Record<Language, Translations> = {
       copyright: '© {year} LebitAI. Alle Rechte vorbehalten.',
       description: 'Wir unterstützen Unternehmen mit KI- und Blockchain-Lösungen der nächsten Generation.',
       navigationTitle: 'Navigation',
+      headline: 'Klarheit vor dem Build ist günstiger als Rework nach dem Launch.',
+      subheadline: 'Nutzen Sie den Footer als letzten Entscheidungspunkt: Plan wählen, Use Case mailen oder zu den relevanten Leistungsbereichen zurückspringen.',
+      highlightItems: ['Web3-Architektur', 'KI-Infrastruktur', 'Umsetzungsfahrpläne'],
+      ctaTitle: 'Bereit für den richtigen nächsten Schritt?',
+      ctaSubtitle: 'Wählen Sie den Beratungsweg passend zu Ihrer aktuellen Phase und gehen Sie mit einem schärferen Umsetzungsplan weiter.',
+      primaryCta: 'Schnellstart buchen',
+      secondaryCta: 'Use Case mailen',
+      emailLabel: 'hi@lebit.ai',
     },
     notFound: {
       title: '404 - Seite nicht gefunden',
@@ -647,6 +671,14 @@ const translations: Record<Language, Translations> = {
       copyright: '© {year} LebitAI. Tous droits réservés.',
       description: 'Nous accompagnons les entreprises avec des solutions IA et blockchain de nouvelle génération.',
       navigationTitle: 'Navigation',
+      headline: 'Mieux vaut clarifier avant de construire que corriger après le lancement.',
+      subheadline: 'Utilisez ce footer comme dernier point de décision : choisissez un plan, envoyez votre cas d’usage ou revenez vers les services qui comptent.',
+      highlightItems: ['Architecture Web3', 'Infrastructure IA', 'Feuilles d’exécution'],
+      ctaTitle: 'Prêt à cadrer la bonne prochaine étape ?',
+      ctaSubtitle: 'Choisissez le parcours de conseil adapté à votre phase actuelle et repartez avec un plan d’exécution plus net.',
+      primaryCta: 'Réserver Quick Start',
+      secondaryCta: 'Envoyer votre cas',
+      emailLabel: 'hi@lebit.ai',
     },
     notFound: {
       title: '404 - Page non trouvée',

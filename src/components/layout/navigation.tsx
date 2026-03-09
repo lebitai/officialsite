@@ -33,7 +33,7 @@ export default function Navigation() {
       animate={{ y: 0 }}
       transition={prefersReducedMotion ? undefined : { duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? "bg-zinc-900/80 backdrop-blur-md" : "bg-transparent"
+        isScrolled ? "bg-white/88 shadow-[0_18px_50px_rgba(50,61,56,0.08)] backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="container px-8 md:px-16 flex h-20 items-center justify-between">
@@ -44,21 +44,21 @@ export default function Navigation() {
         <nav className="hidden md:flex items-center gap-8">
           <Link 
             href="#services"
-            className="text-sm font-medium text-zinc-300 hover:text-white transition-colors"
+            className="text-sm font-medium text-[var(--muted)] hover:text-[var(--text)] transition-colors"
             onClick={(e) => handleNavClick('services', e)}
           >
             {t.nav.services}
           </Link>
           <Link 
             href="#tech-stack"
-            className="text-sm font-medium text-zinc-300 hover:text-white transition-colors"
+            className="text-sm font-medium text-[var(--muted)] hover:text-[var(--text)] transition-colors"
             onClick={(e) => handleNavClick('tech-stack', e)}
           >
             {t.nav.technology}
           </Link>
           <Link 
             href="#consulting"
-            className="text-sm font-medium text-zinc-300 hover:text-white transition-colors"
+            className="text-sm font-medium text-[var(--muted)] hover:text-[var(--text)] transition-colors"
             onClick={(e) => handleNavClick('consulting', e)}
           >
             {t.nav.bookNow}
@@ -82,7 +82,7 @@ export default function Navigation() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            className="text-white hover:text-zinc-300 transition-colors"
+            className="text-[var(--text)] hover:text-[var(--accent-strong)] transition-colors"
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6" />
@@ -100,19 +100,19 @@ export default function Navigation() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 right-0 bg-zinc-900/95 backdrop-blur-md md:hidden"
+              className="absolute top-full left-0 right-0 border-b border-[var(--line)] bg-white/96 shadow-[0_18px_40px_rgba(50,61,56,0.1)] backdrop-blur-md md:hidden"
             >
               <nav className="container px-8 py-8 flex flex-col items-center gap-6">
                 <Link 
                   href="#services"
-                  className="text-lg font-medium text-zinc-300 hover:text-white transition-colors"
+                  className="text-lg font-medium text-[var(--muted)] hover:text-[var(--text)] transition-colors"
                   onClick={(e) => handleNavClick('services', e)}
                 >
                   {t.nav.services}
                 </Link>
                 <Link 
                   href="#tech-stack"
-                  className="text-lg font-medium text-zinc-300 hover:text-white transition-colors"
+                  className="text-lg font-medium text-[var(--muted)] hover:text-[var(--text)] transition-colors"
                   onClick={(e) => handleNavClick('tech-stack', e)}
                 >
                   {t.nav.technology}
