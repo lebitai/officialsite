@@ -9,18 +9,18 @@ type Options = {
 
 export function useTypewriter(words: string[] = [], options: Options = {}) {
   const { typeSpeed = 120, deleteSpeed = 70, pauseTime = 2000, disabled = false } = options;
+  const firstWord = words[0] ?? "";
 
   const [wordIndex, setWordIndex] = useState(0);
-  const [text, setText] = useState("");
+  const [text, setText] = useState(firstWord);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // Fallback: no animation when disabled or no words
+  // Keep the first word visible on first paint and whenever the word set changes.
   useEffect(() => {
-    if (disabled || !words.length) {
-      setText(words[0] ?? "");
-      setIsDeleting(false);
-    }
-  }, [disabled, words]);
+    setWordIndex(0);
+    setText(firstWord);
+    setIsDeleting(false);
+  }, [firstWord]);
 
   useEffect(() => {
     if (disabled || !words.length) return;

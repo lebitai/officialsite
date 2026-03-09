@@ -7,14 +7,20 @@ export interface Translations {
     services: string;
     technology: string;
     bookNow: string;
+    primaryCta: string;
     contact: string;
   };
   hero: {
+    eyebrow: string;
     titlePrefix: string;
     titleSuffix: string;
     rotatingWords: string[];
     subtitle: string;
-    getStarted: string;
+    primaryCta: string;
+    secondaryCta: string;
+    fitTitle: string;
+    fitItems: string[];
+    trustItems: string[];
     stat1Label: string;
     stat1Value: string;
     stat2Label: string;
@@ -23,9 +29,11 @@ export interface Translations {
   consulting: {
     title: string;
     subtitle: string;
+    assuranceItems: string[];
     basicPlan: {
       title: string;
       subtitle: string;
+      bestFor: string;
       duration: string;
       features: string[];
       button: string;
@@ -33,6 +41,7 @@ export interface Translations {
     premiumPlan: {
       title: string;
       subtitle: string;
+      bestFor: string;
       duration: string;
       features: string[];
       button: string;
@@ -41,6 +50,7 @@ export interface Translations {
     enterprisePlan: {
       title: string;
       subtitle: string;
+      bestFor: string;
       duration: string;
       features: string[];
       button: string;
@@ -91,15 +101,29 @@ const translations: Record<Language, Translations> = {
     nav: {
       services: 'Services',
       technology: 'Technology',
-      bookNow: 'Book Now',
+      bookNow: 'Plans',
+      primaryCta: 'Book Strategy Call',
       contact: 'Contact',
     },
     hero: {
-      titlePrefix: 'Transform "Cutting-edge"',
-      titleSuffix: 'into',
-      rotatingWords: ['Leading', 'Business', 'Technology', 'Culture'],
-      subtitle: 'Deep experience in Web3 × AI infrastructure. Avoid detours and go live fast.',
-      getStarted: 'Get Started',
+      eyebrow: 'Web3 and OSAASC advisory for founders, operators, and product teams',
+      titlePrefix: 'Leave the call with a',
+      titleSuffix: '',
+      rotatingWords: ['launch roadmap', 'clear technical plan', 'confident next step', 'pilot execution brief'],
+      subtitle: 'Skip weeks of tool comparison and false starts. We help you define scope, choose the right stack, and leave with an execution-ready plan.',
+      primaryCta: 'Book the $19.90 Quick Start Plan',
+      secondaryCta: 'Email Your Use Case',
+      fitTitle: 'Best fit for',
+      fitItems: [
+        'Founders validating a Web3 or AI offer',
+        'Teams choosing architecture before hiring engineers',
+        'Operators needing a fast second opinion before launch',
+      ],
+      trustItems: [
+        '30-minute strategy call',
+        'Actionable roadmap, not generic advice',
+        'Clear next steps you can execute immediately',
+      ],
       stat1Label: 'Web3 Solutions',
       stat1Value: 'Enterprise Ready',
       stat2Label: 'AI Integration',
@@ -107,10 +131,16 @@ const translations: Record<Language, Translations> = {
     },
     consulting: {
       title: 'Web3 & OSAASC Consulting',
-      subtitle: 'Choose the right consulting plan for your needs and get expert guidance to start your Web3 and OSAASC journey',
+      subtitle: 'Choose the plan that matches your stage, get fast clarity on scope and architecture, and move forward with an execution-ready next step.',
+      assuranceItems: [
+        'Choose a plan based on your stage, not guesswork',
+        'Every session ends with a concrete next-step plan',
+        'Use the call before hiring, building, or changing stack',
+      ],
       basicPlan: {
         title: 'Quick Start Plan',
-        subtitle: 'Perfect for initial understanding and quick start',
+        subtitle: 'Fast clarity before you spend serious engineering time',
+        bestFor: 'Best for early validation, architecture decisions, and urgent second opinions.',
         duration: '30-minute 1-on-1 online consultation',
         features: [
           'Requirements analysis and goal clarification',
@@ -118,11 +148,12 @@ const translations: Record<Language, Translations> = {
           'Simple technical architecture guidance',
           'Key technology selection advice',
         ],
-        button: 'Quick Start Plan',
+        button: 'Book Quick Start',
       },
       premiumPlan: {
         title: 'Deep Consulting Plan',
-        subtitle: 'In-depth analysis and detailed planning',
+        subtitle: 'The strongest option for teams preparing to build or launch',
+        bestFor: 'Best for founders and product teams who need a deeper roadmap before execution.',
         duration: '60-minute 1-on-1 online consultation',
         features: [
           'Detailed requirements analysis and business assessment',
@@ -132,12 +163,13 @@ const translations: Record<Language, Translations> = {
           'Cloud services and AI resource assessment',
           'Detailed implementation plan and timeline',
         ],
-        button: 'Deep Consulting Plan',
-        badge: 'Recommended',
+        button: 'Book Deep Consulting',
+        badge: 'Most Popular',
       },
       enterprisePlan: {
         title: 'Enterprise OSAASC Plan',
-        subtitle: 'Comprehensive enterprise-level AI infrastructure consulting',
+        subtitle: 'Hands-on strategic alignment for enterprise-scale AI infrastructure work',
+        bestFor: 'Best for enterprise teams planning multi-stakeholder AI or infrastructure programs.',
         duration: '3-day face-to-face intensive consultation',
         features: [
           'Agentic AI infrastructure architecture design',
@@ -146,7 +178,7 @@ const translations: Record<Language, Translations> = {
           'Data standardization and processing',
           '3-day on-site efficient communication',
         ],
-        button: 'Enterprise Plan',
+        button: 'Book Enterprise Plan',
         badge: 'Enterprise',
       },
       note: 'Note: All consultations only provide detailed planning and guidance, not including subsequent implementation services',
@@ -222,15 +254,29 @@ const translations: Record<Language, Translations> = {
     nav: {
       services: 'Dienstleistungen',
       technology: 'Technologie',
-      bookNow: 'Jetzt buchen',
+      bookNow: 'Pläne',
+      primaryCta: 'Strategiegespräch buchen',
       contact: 'Kontakt',
     },
     hero: {
-      titlePrefix: 'Verwandeln Sie "Spitzentechnologie"',
-      titleSuffix: 'in',
-      rotatingWords: ['Marktführerschaft', 'Geschäft', 'Technologie', 'Kultur'],
-      subtitle: 'Tiefgreifende Erfahrung in Web3 × KI-Infrastruktur. Umwege vermeiden und schnell live gehen.',
-      getStarted: 'Jetzt starten',
+      eyebrow: 'Web3- und OSAASC-Beratung für Gründer, Betreiber und Produktteams',
+      titlePrefix: 'Verlassen Sie das Gespräch mit einem',
+      titleSuffix: '',
+      rotatingWords: ['klaren Launch-Fahrplan', 'klaren technischen Plan', 'sicheren nächsten Schritt', 'Pilot-Umsetzungsbrief'],
+      subtitle: 'Vermeiden Sie wochenlange Tool-Vergleiche und Fehlstarts. Wir schärfen den Scope, wählen den passenden Stack und liefern einen umsetzbaren Plan.',
+      primaryCta: 'Den Schnellstart für $19.90 buchen',
+      secondaryCta: 'Use Case per E-Mail senden',
+      fitTitle: 'Besonders passend für',
+      fitItems: [
+        'Gründer, die ein Web3- oder KI-Angebot validieren',
+        'Teams, die die Architektur vor dem Engineering festlegen müssen',
+        'Operatoren, die vor dem Launch eine schnelle Zweitmeinung brauchen',
+      ],
+      trustItems: [
+        '30-minütiges Strategiegespräch',
+        'Konkreter Fahrplan statt generischer Beratung',
+        'Sofort umsetzbare nächste Schritte',
+      ],
       stat1Label: 'Web3-Lösungen',
       stat1Value: 'Unternehmensbereit',
       stat2Label: 'KI-Integration',
@@ -238,10 +284,16 @@ const translations: Record<Language, Translations> = {
     },
     consulting: {
       title: 'Web3 & OSAASC Beratung',
-      subtitle: 'Wählen Sie den richtigen Beratungsplan für Ihre Bedürfnisse und erhalten Sie fachkundige Anleitung für Ihre Web3- und OSAASC-Reise',
+      subtitle: 'Wählen Sie den passenden Plan für Ihre Phase, erhalten Sie schnell Klarheit zu Scope und Architektur und gehen Sie mit einem umsetzbaren nächsten Schritt weiter.',
+      assuranceItems: [
+        'Wählen Sie den Plan passend zu Ihrer Phase statt nach Gefühl',
+        'Jede Session endet mit einem konkreten nächsten Schritt',
+        'Ideal vor Hiring, Build oder Stack-Wechsel',
+      ],
       basicPlan: {
         title: 'Schnellstart-Plan',
-        subtitle: 'Perfekt für erste Einblicke und schnellen Start',
+        subtitle: 'Schnelle Klarheit, bevor Engineering-Zeit gebunden wird',
+        bestFor: 'Ideal für frühe Validierung, Architekturentscheidungen und dringende Zweitmeinungen.',
         duration: '30-minütige 1-zu-1 Online-Beratung',
         features: [
           'Anforderungsanalyse und Zielklärung',
@@ -249,11 +301,12 @@ const translations: Record<Language, Translations> = {
           'Einfache technische Architekturberatung',
           'Beratung zur Technologieauswahl',
         ],
-        button: 'Schnellstart-Plan',
+        button: 'Schnellstart buchen',
       },
       premiumPlan: {
         title: 'Tiefgehende Beratung',
-        subtitle: 'Eingehende Analyse und detaillierte Planung',
+        subtitle: 'Die stärkste Option für Teams vor Build oder Launch',
+        bestFor: 'Ideal für Gründer und Produktteams, die vor der Umsetzung einen tieferen Fahrplan brauchen.',
         duration: '60-minütige 1-zu-1 Online-Beratung',
         features: [
           'Detaillierte Anforderungsanalyse und Geschäftsbewertung',
@@ -263,12 +316,13 @@ const translations: Record<Language, Translations> = {
           'Cloud-Services und KI-Ressourcenbewertung',
           'Detaillierter Implementierungsplan und Zeitplan',
         ],
-        button: 'Tiefgehende Beratung',
-        badge: 'Empfohlen',
+        button: 'Tiefgehende Beratung buchen',
+        badge: 'Am beliebtesten',
       },
       enterprisePlan: {
         title: 'Enterprise OSAASC Plan',
-        subtitle: 'Umfassende KI-Infrastrukturberatung auf Unternehmensebene',
+        subtitle: 'Strategische Begleitung für unternehmensweite KI-Infrastrukturvorhaben',
+        bestFor: 'Ideal für Enterprise-Teams mit mehreren Stakeholdern und komplexen AI-Programmen.',
         duration: '3-tägige persönliche Intensivberatung',
         features: [
           'Agentic AI Infrastruktur-Architekturdesign',
@@ -277,7 +331,7 @@ const translations: Record<Language, Translations> = {
           'Datenstandardisierung und -verarbeitung',
           '3 Tage effiziente Vor-Ort-Kommunikation',
         ],
-        button: 'Enterprise Plan',
+        button: 'Enterprise-Plan buchen',
         badge: 'Enterprise',
       },
       note: 'Hinweis: Alle Beratungen bieten nur detaillierte Planung und Anleitung, keine nachfolgenden Implementierungsdienste',
@@ -353,15 +407,29 @@ const translations: Record<Language, Translations> = {
     nav: {
       services: 'Services',
       technology: 'Technologie',
-      bookNow: 'Réserver',
+      bookNow: 'Plans',
+      primaryCta: 'Réserver un appel stratégique',
       contact: 'Contact',
     },
     hero: {
-      titlePrefix: 'Transformez "Avant-garde"',
-      titleSuffix: 'en',
-      rotatingWords: ['Leader', 'Affaires', 'Technologie', 'Culture'],
-      subtitle: 'Expérience approfondie en infrastructure Web3 × IA. Évitez les détours et passez en production rapidement.',
-      getStarted: 'Commencer',
+      eyebrow: 'Conseil Web3 et OSAASC pour fondateurs, opérateurs et équipes produit',
+      titlePrefix: 'Repartez avec une',
+      titleSuffix: '',
+      rotatingWords: ['feuille de route de lancement', 'feuille technique claire', 'prochaine étape sûre', 'brief d’exécution pilote'],
+      subtitle: 'Évitez des semaines de comparaison d’outils et de faux départs. Nous cadrons le scope, choisissons le bon stack et vous repartez avec un plan exécutable.',
+      primaryCta: 'Réserver le Quick Start à $19.90',
+      secondaryCta: 'Envoyer votre cas par email',
+      fitTitle: 'Idéal pour',
+      fitItems: [
+        'Les fondateurs qui valident une offre Web3 ou IA',
+        'Les équipes qui choisissent leur architecture avant de recruter',
+        'Les opérateurs qui veulent un second avis rapide avant le lancement',
+      ],
+      trustItems: [
+        'Appel stratégique de 30 minutes',
+        'Feuille de route actionnable, pas du conseil vague',
+        'Étapes suivantes immédiatement exploitables',
+      ],
       stat1Label: 'Solutions Web3',
       stat1Value: 'Prêt pour l\'entreprise',
       stat2Label: 'Intégration IA',
@@ -369,10 +437,16 @@ const translations: Record<Language, Translations> = {
     },
     consulting: {
       title: 'Conseil Web3 & OSAASC',
-      subtitle: 'Choisissez le plan de conseil adapté à vos besoins et bénéficiez de conseils d\'experts pour démarrer votre parcours Web3 et OSAASC',
+      subtitle: 'Choisissez le plan adapté à votre phase, clarifiez rapidement le scope et l’architecture, puis avancez avec une prochaine étape réellement exploitable.',
+      assuranceItems: [
+        'Choisissez selon votre phase, pas au hasard',
+        'Chaque session se termine par un plan d’action concret',
+        'Utile avant de recruter, construire ou changer de stack',
+      ],
       basicPlan: {
         title: 'Plan Démarrage Rapide',
-        subtitle: 'Parfait pour une première compréhension et un démarrage rapide',
+        subtitle: 'Une clarté rapide avant d’engager du temps d’ingénierie',
+        bestFor: 'Idéal pour la validation initiale, les choix d’architecture et les seconds avis urgents.',
         duration: 'Consultation en ligne 1-à-1 de 30 minutes',
         features: [
           'Analyse des besoins et clarification des objectifs',
@@ -380,11 +454,12 @@ const translations: Record<Language, Translations> = {
           'Conseils d\'architecture technique simple',
           'Conseils sur le choix des technologies clés',
         ],
-        button: 'Plan Démarrage Rapide',
+        button: 'Réserver Quick Start',
       },
       premiumPlan: {
         title: 'Plan Conseil Approfondi',
-        subtitle: 'Analyse approfondie et planification détaillée',
+        subtitle: 'L’option la plus solide pour les équipes avant build ou lancement',
+        bestFor: 'Idéal pour les fondateurs et équipes produit qui ont besoin d’une feuille de route plus poussée avant exécution.',
         duration: 'Consultation en ligne 1-à-1 de 60 minutes',
         features: [
           'Analyse détaillée des besoins et évaluation commerciale',
@@ -394,12 +469,13 @@ const translations: Record<Language, Translations> = {
           'Évaluation des services cloud et des ressources IA',
           'Plan de mise en œuvre détaillé et calendrier',
         ],
-        button: 'Plan Conseil Approfondi',
-        badge: 'Recommandé',
+        button: 'Réserver le plan approfondi',
+        badge: 'Le plus choisi',
       },
       enterprisePlan: {
         title: 'Plan Enterprise OSAASC',
-        subtitle: 'Conseil complet en infrastructure IA au niveau entreprise',
+        subtitle: 'Accompagnement stratégique pour des chantiers IA d’envergure entreprise',
+        bestFor: 'Idéal pour les équipes enterprise qui coordonnent plusieurs parties prenantes et un programme IA complexe.',
         duration: 'Consultation intensive en personne de 3 jours',
         features: [
           'Conception d\'architecture d\'infrastructure IA agentique',
@@ -408,7 +484,7 @@ const translations: Record<Language, Translations> = {
           'Standardisation et traitement des données',
           '3 jours de communication efficace sur site',
         ],
-        button: 'Plan Enterprise',
+        button: 'Réserver Enterprise',
         badge: 'Enterprise',
       },
       note: 'Note : Toutes les consultations fournissent uniquement une planification et des conseils détaillés, sans services de mise en œuvre ultérieurs',

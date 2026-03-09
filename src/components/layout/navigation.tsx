@@ -71,7 +71,7 @@ export default function Navigation() {
             className="btn-primary-dark text-sm"
             onClick={(e) => handleNavClick('consulting', e)}
           >
-            {t.nav.bookNow}
+            {t.nav.primaryCta}
           </button>
           <LanguageSwitcher />
         </div>
@@ -120,7 +120,7 @@ export default function Navigation() {
                   className="btn-primary-dark w-[200px] mt-4"
                   onClick={(e) => handleNavClick('consulting', e)}
                 >
-                  {t.nav.bookNow}
+                  {t.nav.primaryCta}
                 </button>
               </nav>
             </motion.div>

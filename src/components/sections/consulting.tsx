@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Clock, Check, Star, Building2 } from "lucide-react";
+import { ArrowRight, Building2, Check, Clock, Star } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
 import { consultingPlans } from "@/config/pricing";
 
@@ -29,6 +29,28 @@ export default function Consulting() {
           </p>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.05 }}
+          className="mb-8 grid gap-4 md:grid-cols-3"
+        >
+          {t.consulting.assuranceItems.map((item) => (
+            <div
+              key={item}
+              className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-zinc-200 shadow-[0_10px_30px_rgba(0,0,0,0.15)]"
+            >
+              <div className="flex items-start gap-3">
+                <div className="mt-0.5 rounded-full bg-cyan-400/15 p-1.5 text-cyan-300">
+                  <Check className="h-4 w-4" />
+                </div>
+                <span>{item}</span>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
         <div className="grid md:grid-cols-3 gap-6">
           {/* Basic Plan */}
           <motion.div
@@ -37,11 +59,15 @@ export default function Consulting() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div className="glass-card h-full rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
+            <div className="glass-card h-full rounded-[28px] p-8 hover:bg-white/10 transition-all duration-300">
               <div className="text-center mb-6">
                 <h3 className="text-xl font-medium text-white mb-2">{t.consulting.basicPlan.title}</h3>
                 <div className="text-4xl font-light text-white mb-2">${formatPrice(consultingPlans.basic.priceUsd)}</div>
                 <p className="text-sm text-zinc-400">{t.consulting.basicPlan.subtitle}</p>
+              </div>
+
+              <div className="mb-6 rounded-2xl border border-cyan-400/15 bg-cyan-400/8 px-4 py-3 text-sm text-cyan-100">
+                {t.consulting.basicPlan.bestFor}
               </div>
               
               <div className="space-y-6">
@@ -61,9 +87,10 @@ export default function Consulting() {
 
                 <button
                   onClick={() => handleBooking("basic")}
-                  className="w-full btn-outline-dark py-3 mt-4"
+                  className="mt-4 inline-flex w-full items-center justify-center gap-2 py-3 btn-outline-dark"
                 >
                   {t.consulting.basicPlan.button}
+                  <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
             </div>
@@ -76,7 +103,7 @@ export default function Consulting() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="glass-card h-full rounded-2xl p-8 relative border-cyan-500/50 hover:bg-white/10 transition-all duration-300">
+            <div className="glass-card relative h-full rounded-[28px] border-cyan-500/50 bg-gradient-to-b from-cyan-500/8 to-transparent p-8 shadow-[0_20px_60px_rgba(8,145,178,0.12)] transition-all duration-300 hover:bg-white/10">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <div className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-4 py-1 rounded-full text-xs font-medium flex items-center gap-1">
                   <Star className="h-3 w-3" />
@@ -88,6 +115,10 @@ export default function Consulting() {
                 <h3 className="text-xl font-medium text-white mb-2">{t.consulting.premiumPlan.title}</h3>
                 <div className="text-4xl font-light text-white mb-2">${formatPrice(consultingPlans.premium.priceUsd)}</div>
                 <p className="text-sm text-zinc-400">{t.consulting.premiumPlan.subtitle}</p>
+              </div>
+
+              <div className="mb-6 rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-4 py-3 text-sm text-cyan-50">
+                {t.consulting.premiumPlan.bestFor}
               </div>
               
               <div className="space-y-6">
@@ -107,9 +138,10 @@ export default function Consulting() {
 
                 <button
                   onClick={() => handleBooking("premium")}
-                  className="w-full btn-primary-dark py-3 mt-4"
+                  className="mt-4 inline-flex w-full items-center justify-center gap-2 py-3 btn-primary-dark"
                 >
                   {t.consulting.premiumPlan.button}
+                  <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
             </div>
@@ -121,7 +153,7 @@ export default function Consulting() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="glass-card h-full rounded-2xl p-8 relative border-amber-500/50 hover:bg-white/10 transition-all duration-300">
+            <div className="glass-card relative h-full rounded-[28px] border-amber-500/50 p-8 transition-all duration-300 hover:bg-white/10">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-1 rounded-full text-xs font-medium flex items-center gap-1">
                   <Building2 className="h-3 w-3" />
@@ -133,6 +165,10 @@ export default function Consulting() {
                 <h3 className="text-xl font-medium text-white mb-2">{t.consulting.enterprisePlan.title}</h3>
                 <div className="text-4xl font-light text-white mb-2">${formatPrice(consultingPlans.enterprise.priceUsd)}</div>
                 <p className="text-sm text-zinc-400">{t.consulting.enterprisePlan.subtitle}</p>
+              </div>
+
+              <div className="mb-6 rounded-2xl border border-amber-400/15 bg-amber-400/8 px-4 py-3 text-sm text-amber-50">
+                {t.consulting.enterprisePlan.bestFor}
               </div>
               
               <div className="space-y-6">
@@ -152,9 +188,10 @@ export default function Consulting() {
 
                 <button
                   onClick={() => handleBooking("enterprise")}
-                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white py-3 rounded-full font-medium hover:from-amber-600 hover:to-orange-600 transition-all duration-300 mt-4"
+                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 py-3 font-medium text-white transition-all duration-300 hover:from-amber-600 hover:to-orange-600"
                 >
                   {t.consulting.enterprisePlan.button}
+                  <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
             </div>
