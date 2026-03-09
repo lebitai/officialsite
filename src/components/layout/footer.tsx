@@ -57,6 +57,7 @@ export default function Footer() {
                 href={socialLinks.email}
                 className="text-zinc-400 hover:text-cyan-400 transition-colors"
                 title={socialLinks.emailLabel}
+                aria-label={socialLinks.emailLabel}
               >
                 <Mail className="h-5 w-5" />
               </a>
@@ -65,6 +66,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors"
+                aria-label="LebitAI on X"
               >
                 <SiX className="h-5 w-5" />
               </a>
@@ -73,6 +75,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors"
+                aria-label="LebitAI on LinkedIn"
               >
                 <SiLinkedin className="h-5 w-5" />
               </a>
