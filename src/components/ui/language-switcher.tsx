@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function LanguageSwitcher() {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const currentLang = supportedLanguages.find(l => l.code === language);
 
   return (
@@ -16,11 +16,12 @@ export function LanguageSwitcher() {
       <DropdownMenuTrigger asChild>
         <button
           aria-haspopup="menu"
+          aria-label={t.ui.languageSwitcherLabel}
           className="inline-flex items-center gap-1.5 rounded-full border border-[var(--line)] bg-white/82 px-3 py-2 text-sm font-medium text-[var(--text)] shadow-[0_8px_20px_rgba(50,61,56,0.05)] transition-colors hover:border-[#ccd4c8] hover:bg-[var(--bg-soft)]"
         >
           <span>{currentLang?.code.toUpperCase()}</span>
           <ChevronDown className="h-3 w-3 text-[var(--muted)]" />
-          <span className="sr-only">Switch language</span>
+          <span className="sr-only">{t.ui.languageSwitcherLabel}</span>
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-40">
